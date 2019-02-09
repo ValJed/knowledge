@@ -1,12 +1,27 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <el-button>toto bambino</el-button>
-    <router-view/>
-  </div>
+  <el-container id="app">
+    <el-header height="3rem">
+      <banner />
+    </el-header>
+    <router-view></router-view>
+  </el-container>
 </template>
 
-<style src="./assets/scss/App.scss" scoped lang='scss'></style>
+<script>
+import Banner from '@/views/Banner.vue'
+// import gql from 'graphql-tag'
+// import { dev } from '../config'
+
+export default {
+  name: 'App',
+  components: {
+    Banner
+
+  },
+  data () {
+    return {}
+  }
+}
+</script>
+
+<style src="./assets/scss/App.scss" lang='scss'></style>

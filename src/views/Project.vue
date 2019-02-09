@@ -1,23 +1,23 @@
 <template>
   <el-container>
+    <el-aside>
+      <sidebar />
+    </el-aside>
     <el-main>
-      <el-row type="flex" justify="center" class="projects-container">
-        <el-col :span=18>
-          <h3>My Projects</h3>
-          <projects-list></projects-list>
-        </el-col>
-      </el-row>
+      <doc-page></doc-page>
     </el-main>
   </el-container>
 </template>
 
 <script>
-import ProjectsList from '@/views/ProjectsList.vue'
+import Sidebar from '@/views/Sidebar.vue'
+import DocPage from '@/views/DocPage.vue'
 
 export default {
-  name: 'Home',
+  name: 'Project',
   components: {
-    ProjectsList
+    Sidebar,
+    DocPage
   },
   data () {
     return {
