@@ -4,15 +4,23 @@
   "description": "An easy to use, lightweight documentation application.",
   "private": true,
   "scripts": {
-    "dev": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "dev": "npm-run-all -p serve serve:client",
+    "serve": "cross-env NODE_ENV=development npm run build && cross-env NODE_ENV=development npm-run-all -p start serve:client",
+    "serve:client": "vue-cli-service serve",
+    "build": "npm run build:server -- --silent && npm run build:client -- --no-clean --silent",
+    "build:client": "vue-cli-service build",
+    "build:server": "cross-env WEBPACK_TARGET=node vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "test:unit": "vue-cli-service test:unit"
+    "test:unit": "vue-cli-service test:unit",
+    "start": "node ./server.js"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "element-ui": "^2.5.4",
+    "express": "^4.16.4",
     "vue": "^2.5.22",
     "vue-router": "^3.0.1",
+    "vue-server-renderer": "^2.6.4",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
@@ -26,10 +34,14 @@
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
     "babel-plugin-component": "^1.1.1",
+    "cross-env": "^5.2.0",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
     "node-sass": "^4.11.0",
+    "lodash.merge": "^4.6.1",
+    "npm-run-all": "^4.1.5",
     "sass-loader": "^7.1.0",
-    "vue-template-compiler": "^2.5.21"
+    "vue-template-compiler": "^2.5.21",
+    "webpack-node-externals": "^1.7.2"
   }
 }
