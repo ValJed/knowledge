@@ -24,8 +24,6 @@ const bundle = require('./dist/vue-ssr-server-bundle.json')
 const template = fs.readFileSync(templatePath, 'utf-8')
 const clientManifest = require('./dist/vue-ssr-client-manifest.json')
 
-// console.log('bundle ===> ', require('util').inspect(bundle, { colors: true, depth: 2 }))
-
 renderer = createRenderer(bundle, {
   template,
   clientManifest
@@ -36,6 +34,7 @@ if (process.env.NODE_ENV !== 'production') {
     target: `${devServerBaseURL}:${devServerPort}`,
     changeOrigin: true,
     pathRewrite: function (path) {
+      console.log('path ===> ', path)
       return path.includes('main')
         ? '/main.js'
         : path
@@ -59,7 +58,7 @@ app.use('/js', express.static(path.resolve(__dirname, './dist/js')))
 app.use('/css', express.static(path.resolve(__dirname, './dist/css')))
 
 app.get('*', (req, res) => {
-  console.log('=============> IN GET <================')
+  console.log('=============> GET <================')
   res.setHeader('Content-Type', 'text/html')
 
   const context = {
@@ -82,7 +81,6 @@ app.get('*', (req, res) => {
       }
     }
     res.status(context.HTTPStatus || 200)
-    console.log('html ===> ', html)
     res.send(html)
   })
 })

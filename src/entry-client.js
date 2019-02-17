@@ -1,7 +1,9 @@
-import { createApp } from './app'
+import { createApp } from './main'
 
 console.log('=============> in entry client <================')
-const { app } = createApp()
+const { app, router } = createApp()
 
-console.log('app ===> ', app)
-app.$mount('#app')
+router.onReady(() => {
+  console.log('app ===> ', app)
+  app.$mount('#app')
+})

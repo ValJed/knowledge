@@ -2,9 +2,9 @@
   <el-container id="app">
     <h1>APP TITLE</h1>
     <el-header height="3rem">
-      <!-- <banner /> -->
+      <banner />
     </el-header>
-    <!-- <router-view></router-view> -->
+    <router-view></router-view>
   </el-container>
 </template>
 

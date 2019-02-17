@@ -1,17 +1,17 @@
 <template>
   <div class="banner">
-    {{ msg }}
+    TOTO
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Banner',
-  data () {
-    return {
-      msg: 'MY HEADER'
-    }
-  }
+  name: 'Banner'
+  // data () {
+  //   return {
+  //     msg: 'MY HEADER'
+  //   }
+  // }
 }
 </script>
 
