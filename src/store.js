@@ -1,21 +1,15 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-// import contextBuilder from './utils/contextBuilder'
+import buildContext from './utils/contextBuilder'
 
 Vue.use(Vuex)
 
-// const buildContext = async () => {
-//   return await contextBuilder()
-// }
+const { state } = buildContext()
 
-// const context = buildContext()
-
-// console.log('buildContext ===> ', context)
+console.log('buildContext ===> ', state)
 
 export default new Vuex.Store({
-  state: {
-    toto: 'toto'
-  },
+  state,
   mutations: {
 
   },

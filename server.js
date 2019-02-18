@@ -8,6 +8,7 @@ const { createBundleRenderer } = require('vue-server-renderer')
 
 const devServerBaseURL = process.env.DEV_SERVER_BASE_URL || 'http://localhost'
 const devServerPort = process.env.DEV_SERVER_PORT || 8081
+const appServerPort = process.env.PORT || 8080
 
 const app = express()
 
@@ -57,6 +58,10 @@ if (process.env.NODE_ENV !== 'production') {
 app.use('/js', express.static(path.resolve(__dirname, './dist/js')))
 app.use('/css', express.static(path.resolve(__dirname, './dist/css')))
 
+app.use('/toto', (req, res) => {
+  console.log('=============> TOTO <================')
+})
+
 app.get('*', (req, res) => {
   console.log('=============> GET <================')
   res.setHeader('Content-Type', 'text/html')
@@ -85,4 +90,6 @@ app.get('*', (req, res) => {
   })
 })
 
-module.exports = app
+app.listen(appServerPort, () => {
+  console.log(`server started at localhost:${appServerPort}`)
+})

@@ -1,6 +1,5 @@
 <template>
   <el-container id="app">
-    <h1>APP TITLE</h1>
     <el-header height="3rem">
       <banner />
     </el-header>
@@ -9,7 +8,7 @@
 </template>
 
 <script>
-import Banner from '@/views/Banner.vue'
+import Banner from '@/components/Banner.vue'
 // import gql from 'graphql-tag'
 // import { dev } from '../config'
 

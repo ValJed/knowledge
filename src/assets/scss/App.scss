@@ -1,11 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata|Poppins');
+
 html, body {
   height: 100%;
   margin: 0;
 }
 
-
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Inconsolata', 'Avenir', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -14,6 +15,10 @@ html, body {
   height: 100%;
   .el-header {
     padding: 0;
+  }
+  a {
+    color: #fff;
+    text-decoration: none;
   }
 }
 #nav {

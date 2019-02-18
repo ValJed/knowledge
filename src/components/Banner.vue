@@ -1,6 +1,11 @@
 <template>
   <div class="banner">
-    TOTO
+    <div class="banner-title">
+     <h1>Knowledge</h1>
+    </div>
+    <div class="banner-content">
+      <a href="">sign in</a>
+    </div>
   </div>
 </template>
 

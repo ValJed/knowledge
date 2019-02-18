@@ -3,7 +3,6 @@
     <el-main>
       <el-row type="flex" justify="center" class="projects-container">
         <el-col :span=18>
-          <h3>My Projects</h3>
           <projects-list></projects-list>
         </el-col>
       </el-row>
@@ -12,7 +11,7 @@
 </template>
 
 <script>
-import ProjectsList from '@/views/ProjectsList.vue'
+import ProjectsList from '@/components/ProjectsList.vue'
 
 export default {
   name: 'Home',

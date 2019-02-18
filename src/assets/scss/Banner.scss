@@ -1,5 +1,13 @@
 .banner {
   color: #fff;
   height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
   background-color: #000;
+  h1 {
+    margin: 0;
+    font-weight: 400;
+  }
 }
