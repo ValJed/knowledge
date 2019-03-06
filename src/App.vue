@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Banner from '@/components/Banner.vue'
+import Banner from '@/components/Banner/Banner.vue'
 // import gql from 'graphql-tag'
 // import { dev } from '../config'
 

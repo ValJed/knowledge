@@ -21,4 +21,4 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style src="../assets/scss/Sidebar.scss" scoped lang='scss'></style>
+<style src="./DocPage.scss" scoped lang='scss'></style>

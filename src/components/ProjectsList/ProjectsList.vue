@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import ProjectsItem from '@/components/ProjectsItem.vue'
+import ProjectsItem from '@/components/ProjectsItem/ProjectsItem.vue'
 
 export default {
   name: 'ProjectsList',
@@ -25,4 +25,4 @@ export default {
 }
 </script>
 
-<style src="../assets/scss/projectsList.scss" scoped lang='scss'></style>
+<style src="./projectsList.scss" scoped lang='scss'></style>

@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import ProjectsList from '@/components/ProjectsList.vue'
+import ProjectsList from '@/components/ProjectsList/ProjectsList.vue'
 
 export default {
   name: 'Home',
@@ -27,4 +27,4 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style src="../assets/scss/Home.scss" scoped lang='scss'></style>
+<style src="./Home.scss" scoped lang='scss'></style>

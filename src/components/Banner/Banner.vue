@@ -21,4 +21,4 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style src="../assets/scss/Banner.scss" scoped lang='scss'></style>
+<style src="./Banner.scss" scoped lang='scss'></style>

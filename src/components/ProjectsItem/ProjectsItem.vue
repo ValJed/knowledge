@@ -19,4 +19,4 @@ export default {
 }
 </script>
 
-<style src="../assets/scss/projectsItem.scss" scoped lang='scss'></style>
+<style src="./projectsItem.scss" scoped lang='scss'></style>
