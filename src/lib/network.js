@@ -20,6 +20,30 @@ const getAllProjects = async () => {
   }
 }
 
+const createAccount = async (form) => {
+  const { pseudo, email, password } = form
+  console.log('form ===> ', form)
+  console.log('apiConfig.url ===> ', apiConfig.url)
+
+  try {
+    const res = await axios({
+      method: 'post',
+      url: `${apiConfig.url}/create-account`,
+      data: {
+        pseudo,
+        email,
+        password
+      }
+    })
+
+    console.log('res ===> ', res)
+  } catch (err) {
+    console.error('Error trying to create an account ==> ')
+    console.error(err)
+  }
+}
+
 export {
-  getAllProjects
+  getAllProjects,
+  createAccount
 }
