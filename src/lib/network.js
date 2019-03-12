@@ -22,8 +22,6 @@ const getAllProjects = async () => {
 
 const createAccount = async (form) => {
   const { pseudo, email, password } = form
-  console.log('form ===> ', form)
-  console.log('apiConfig.url ===> ', apiConfig.url)
 
   try {
     const res = await axios({
