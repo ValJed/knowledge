@@ -1,5 +1,5 @@
 const apiConfig = {
-  url: 'http://localhost:4000'
+  url: 'http://localhost:7000'
 }
 
 export {
