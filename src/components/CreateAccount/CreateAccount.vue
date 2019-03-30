@@ -44,8 +44,7 @@
 </template>
 
 <script>
-import { createAccount, checkUserExist } from '../../lib/network'
-import { cmp } from 'semver'
+import { createAccount, get } from '../../lib/network'
 
 export default {
   name: 'Home',
@@ -83,8 +82,8 @@ export default {
           {
             required: true,
             validator: this.checkMailExist,
-            // message: 'An account is already attached to this email address',
-            trigger: 'blur'
+            message: 'An account is already attached to this email address',
+            trigger: ['blur', 'change']
           }
         ],
         password: [
@@ -128,9 +127,11 @@ export default {
     },
 
     async checkMailExist (rule, value, callback) {
-      const res = await checkUserExist(value)
+      const params = { email: value }
 
-      if (res.body === 'exists') {
+      const res = await get('get-user', params)
+
+      if (res.data === 'exists') {
         callback(new Error('An account is already attached to this email address'))
       } else {
         callback()

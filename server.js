@@ -35,7 +35,6 @@ if (process.env.NODE_ENV !== 'production') {
     target: `${devServerBaseURL}:${devServerPort}`,
     changeOrigin: true,
     pathRewrite: function (path) {
-      console.log('path ===> ', path)
       return path.includes('main')
         ? '/main.js'
         : path
@@ -58,12 +57,7 @@ if (process.env.NODE_ENV !== 'production') {
 app.use('/js', express.static(path.resolve(__dirname, './dist/js')))
 app.use('/css', express.static(path.resolve(__dirname, './dist/css')))
 
-app.use('/toto', (req, res) => {
-  console.log('=============> TOTO <================')
-})
-
 app.get('*', (req, res) => {
-  console.log('=============> GET <================')
   res.setHeader('Content-Type', 'text/html')
 
   const context = {
@@ -72,9 +66,6 @@ app.get('*', (req, res) => {
   }
 
   renderer.renderToString(context, (err, html) => {
-    console.log('=============> IN RENDER TO STRING <================')
-    console.log('context ===> ', context)
-    console.log('html ===> ', require('util').inspect(html, { colors: true, depth: 2 }))
     if (err) {
       if (err.url) {
         res.redirect(err.url)

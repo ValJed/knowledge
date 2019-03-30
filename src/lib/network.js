@@ -2,20 +2,6 @@
 import { apiConfig } from './config.js'
 import axios from 'axios'
 
-export const getAllProjects = async () => {
-  const slug = 'projects'
-
-  try {
-    const data = await axios.get(`${apiConfig.url}/${slug}`)
-    if (!data || !data.length) {
-      return data.data
-    }
-  } catch (err) {
-    console.error('Error during fetching our Api ==> ')
-    console.error(err)
-  }
-}
-
 export const createAccount = async (form) => {
   const { pseudo, email, password } = form
 
@@ -37,34 +23,34 @@ export const createAccount = async (form) => {
   }
 }
 
-export const checkUserExist = async (email) => {
-  console.log('email ===> ', email)
+export const get = async (route, params) => {
+  console.log('params ===> ', params)
   try {
     return await axios({
       method: 'get',
-      url: `${apiConfig.url}/get-user`,
-      data: {
-        email
-      }
+      url: `${apiConfig.url}/${route}`,
+      params
     })
   } catch (err) {
-    console.error('err ===> ', err)
+    console.error(
+      `Error during get request on API:
+      ${err}`
+    )
   }
 }
 
-export const logUser = async (form) => {
-  const { email, password } = form
-
+export const post = async (route, data) => {
+  console.log('=============> post <================')
   try {
     return await axios({
-      method: 'get',
-      url: `${apiConfig.url}/log-user`,
-      data: {
-        email,
-        password
-      }
+      method: 'post',
+      url: `${apiConfig.url}/${route}`,
+      data
     })
   } catch (err) {
-    console.error('err ===> ', err)
+    console.error(
+      `Error during post request on API:
+      ${err}`
+    )
   }
 }

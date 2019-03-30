@@ -12,6 +12,7 @@
 
 <script>
 import ProjectsList from '@/components/ProjectsList/ProjectsList.vue'
+import { mapActions, mapState } from 'vuex'
 
 export default {
   name: 'Home',
@@ -22,9 +23,19 @@ export default {
     return {
       msg: 'MY home'
     }
+  },
+  computed: {
+    ...mapState(['user'])
+  },
+  methods: {
+    ...mapActions(['getProjects'])
+  },
+  created () {
+    console.log('this ===> ', this)
+    this.getProjects()
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style src="./Home.scss" scoped lang='scss'></style>
+<style src="./User.scss" scoped lang='scss'></style>

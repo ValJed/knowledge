@@ -1,7 +1,11 @@
 <template>
-  <el-col :span=8>
+  <el-col :span=8 >
     <div class="item-container">
-      <h3>Project name</h3>
+      <h3>{{ title }}</h3>
+      <div class="item-content">
+        <img src="https://fakeimg.pl/300x150/">
+        <p>description</p>
+      </div>
     </div>
   </el-col>
 </template>

@@ -1,6 +1,13 @@
 .item-container {
-  background: red;
-  margin: 1rem 0;
-  border: .3rem black solid;
-  height: 6rem;
+  // background: red;
+  padding: 1rem;
+  border: .2rem black solid;
+  .item-content {
+    text-align: right;
+    margin: 0 auto;
+    p {
+      margin-left: 1rem;
+      text-align: left;
+    }
+  }
 }
