@@ -83,8 +83,16 @@ export default {
             console.log('res ===> ', res)
 
             if (res.status === 200) {
+              const date = new Date()
+
+              date.setDate(date.getDate() + 1)
+
+              console.log('date ===> ', date)
+
+              document.cookie = `token=${res.data.token}; expires=${date}`
+
               const userId = res.data._id
-              this.storeUser(res.data)
+              this.storeUser(res.data.user)
               this.$router.push({ path: `/${userId}` })
               console.log('this.router ===> ', this)
             } else if (res.status === 401) {

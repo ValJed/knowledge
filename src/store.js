@@ -7,8 +7,6 @@ Vue.use(Vuex)
 
 const state = buildContext()
 
-console.log('state ===> ', state)
-
 export default new Vuex.Store({
   namespaced: false,
   strict: true,

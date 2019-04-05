@@ -149,9 +149,7 @@ export default {
             const res = await createAccount(form)
 
             if (res.status === 201) {
-              console.log('account created ===> ')
             } else if (res.data === 'existing mail') {
-              console.log('=============> HERE <================')
               this.error.email = undefined
               // this.error.email = 'An account is already attached to this email address'
             }

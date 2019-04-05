@@ -2,7 +2,7 @@
   <el-container>
     <el-main>
       <el-row type="flex" justify="center" class="projects-container">
-        <el-col :span=18>
+        <el-col :span='18'>
           <projects-list></projects-list>
         </el-col>
       </el-row>

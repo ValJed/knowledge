@@ -9,7 +9,7 @@ export default {
   },
 
   getProjects ({ commit, getters, state }, userId) {
-    console.log('=============> HERE <================')
+    console.log('=============> GET PROJECTS <================')
     // commit(types.STORE_PROJECTS, )
   }
 

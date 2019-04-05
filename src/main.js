@@ -6,8 +6,6 @@ import elementUi from 'element-ui'
 import './assets/scss/element-variables.scss'
 import 'element-ui/lib/theme-chalk/index.css'
 
-console.log('store ===> ', store)
-
 Vue.config.productionTip = false
 Vue.use(elementUi)
 

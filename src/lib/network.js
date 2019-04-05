@@ -40,7 +40,6 @@ export const get = async (route, params) => {
 }
 
 export const post = async (route, data) => {
-  console.log('=============> post <================')
   try {
     return await axios({
       method: 'post',
