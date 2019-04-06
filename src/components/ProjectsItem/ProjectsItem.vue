@@ -1,6 +1,6 @@
 <template>
-  <el-col :span=8 >
-    <div class="item-container">
+  <el-col :span="8">
+    <div @click="getSession" class="item-container">
       <h3>{{ title }}</h3>
       <div class="item-content">
         <img src="https://fakeimg.pl/300x150/">
@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import { get } from '../../lib/network'
+
 export default {
   name: 'ProjectsItem',
   components: {
@@ -18,6 +20,13 @@ export default {
   data () {
     return {
       title: 'MY Project item'
+    }
+  },
+  methods: {
+    getSession: () => {
+      const res = get('session')
+
+      console.log('res ===> ', res)
     }
   }
 }

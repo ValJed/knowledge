@@ -91,7 +91,7 @@ export default {
 
               document.cookie = `token=${res.data.token}; expires=${date}`
 
-              const userId = res.data._id
+              const userId = res.data.user._id
               this.storeUser(res.data.user)
               this.$router.push({ path: `/${userId}` })
               console.log('this.router ===> ', this)

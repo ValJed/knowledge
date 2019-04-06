@@ -24,12 +24,15 @@ export const createAccount = async (form) => {
 }
 
 export const get = async (route, params) => {
-  console.log('params ===> ', params)
+  const token = getToken()
   try {
     return await axios({
       method: 'get',
       url: `${apiConfig.url}/${route}`,
-      params
+      headers: {
+        'Authorization': `Bearer ${token}`
+      },
+      ...params ? { params } : {}
     })
   } catch (err) {
     console.error(
@@ -39,7 +42,7 @@ export const get = async (route, params) => {
   }
 }
 
-export const post = async (route, data) => {
+export const post = async (route, data = {}) => {
   try {
     return await axios({
       method: 'post',
@@ -52,4 +55,12 @@ export const post = async (route, data) => {
       ${err}`
     )
   }
+}
+
+const getToken = () => {
+  const cookies = document.cookie.split(';')
+  const token = cookies
+    .find((token) => token.split('=')[0])
+
+  return token.split('=').splice(1).join('=')
 }
