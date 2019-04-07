@@ -29,12 +29,15 @@
 
 <script>
 // import ProjectsList from '@/components/ProjectsList/ProjectsList.vue'
-import { post } from '../../lib/network'
-import { mapActions } from 'vuex'
+// import { post } from '../../lib/network'
+import { mapActions, mapState } from 'vuex'
 
 export default {
   name: 'Home',
   components: {
+  },
+  computed: {
+    ...mapState(['user', 'projects'])
   },
   data () {
     return {
@@ -66,41 +69,19 @@ export default {
   },
   methods: {
     ...mapActions([
-      'storeUser'
+      'logUser'
     ]),
 
     async submitForm (form) {
       this.$refs['form'].validate(async (valid) => {
         if (valid) {
-          try {
-            const data = {
-              email: form.email,
-              password: form.password
-            }
-
-            const res = await post('log-user', data)
-
-            console.log('res ===> ', res)
-
-            if (res.status === 200) {
-              const date = new Date()
-
-              date.setDate(date.getDate() + 1)
-
-              console.log('date ===> ', date)
-
-              document.cookie = `token=${res.data.token}; expires=${date}`
-
-              const userId = res.data.user._id
-              this.storeUser(res.data.user)
-              this.$router.push({ path: `/${userId}` })
-              console.log('this.router ===> ', this)
-            } else if (res.status === 401) {
-              console.log('Unhautorized access')
-            }
-          } catch (err) {
-            console.error('error ===> ', err)
+          const credentials = {
+            email: form.email,
+            password: form.password
           }
+
+          await this.logUser(credentials)
+          this.$router.push({ path: `/${this.user._id}` })
         }
       })
     }

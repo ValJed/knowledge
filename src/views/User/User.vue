@@ -12,7 +12,10 @@
 
 <script>
 import ProjectsList from '@/components/ProjectsList/ProjectsList.vue'
-import { mapActions, mapState } from 'vuex'
+import {
+  // mapActions,
+  mapState
+} from 'vuex'
 
 export default {
   name: 'Home',
@@ -28,11 +31,10 @@ export default {
     ...mapState(['user'])
   },
   methods: {
-    ...mapActions(['getProjects'])
+    // ...mapActions(['getProjects'])
   },
   created () {
-    console.log('this ===> ', this)
-    this.getProjects()
+    // this.getProjects()
   }
 }
 </script>

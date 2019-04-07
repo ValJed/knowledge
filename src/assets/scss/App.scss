@@ -1,8 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Inconsolata|Poppins');
+@import './element-variables.scss';
 
 html, body {
   height: 100%;
   margin: 0;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
 }
 
 #app {

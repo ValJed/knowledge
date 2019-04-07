@@ -1,15 +1,32 @@
 // import uniq from 'lodash/uniq'
 import * as types from './mutation-types'
+import { post } from '../lib/network'
 
 export default {
 
-  storeUser ({ commit, getters, state }, user) {
-    console.log('user ===> ', user)
-    commit(types.STORE_USER, user)
+  async logUser ({ commit, getters, state }, data) {
+    try {
+      const res = await post('log-user', data)
+
+      console.log('res ===> ', res)
+      if (res.status === 200) {
+        const date = new Date()
+        date.setDate(date.getDate() + 1)
+        document.cookie = `token=${res.data.token}; expires=${date}.`
+
+        commit(types.STORE_USER, res.data.user)
+        commit(types.STORE_PROJECTS, res.data.projects)
+      } else if (res.status === 401) {
+        console.log('Unhautorized access')
+      }
+    } catch (err) {
+      console.error('error ===> ', err)
+    }
   },
 
-  getProjects ({ commit, getters, state }, userId) {
-    console.log('=============> GET PROJECTS <================')
+  addproject ({ commit, getters, state }) {
+    console.log('=============> GET addproject <================')
+
     // commit(types.STORE_PROJECTS, )
   }
 

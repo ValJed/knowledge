@@ -1,0 +1,21 @@
+@import '../../assets/scss/variables.scss';
+
+.add-project-container {
+  padding: 1rem;
+  height: 16rem;
+  line-height: 19rem;
+  text-align: center;
+  &:hover {
+    cursor: pointer;
+    svg {
+      opacity: 1;
+    }
+  }
+  svg {
+    transition: all .4s;
+    width: 5rem;
+    height: 5rem;
+    fill: $color1;
+    opacity: 0.3;
+  }
+}

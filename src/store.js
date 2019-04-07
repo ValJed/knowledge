@@ -1,9 +1,15 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import VuexPersist from 'vuex-persist'
 import buildContext from './lib/contextBuilder'
 import { actions, getters, mutations } from './vuex'
 
 Vue.use(Vuex)
+
+const vuexLocalStorage = new VuexPersist({
+  key: 'vuex',
+  storage: window.localStorage
+})
 
 const state = buildContext()
 
@@ -13,5 +19,6 @@ export default new Vuex.Store({
   state,
   actions,
   mutations,
-  getters
+  getters,
+  plugins: [vuexLocalStorage.plugin]
 })
