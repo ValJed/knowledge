@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import { createAccount, get } from '../../lib/network'
+import { put, get } from '../../lib/network'
 
 export default {
   name: 'Home',
@@ -53,9 +53,9 @@ export default {
     return {
       form: {
         pseudo: 'val',
-        email: 'test@test.co',
-        password: 'shred4618',
-        checkPassword: 'shred4618'
+        email: 'test@test.com',
+        password: 'tototo',
+        checkPassword: 'tototo'
       },
       error: {
         email: undefined
@@ -105,36 +105,38 @@ export default {
     }
   },
   methods: {
-    validatePassword (rule, value, callback) {
+    validatePassword (rule, value, cb) {
       if (value === '') {
-        callback(new Error('Please input the password'))
+        cb(new Error('Please input the password'))
       } else {
         if (this.formRules.checkPassword !== '') {
           this.$refs.form.validateField('checkPassword')
         }
-        callback()
+        cb()
       }
     },
 
-    validateCheckPassword (rule, value, callback) {
+    validateCheckPassword (rule, value, cb) {
       if (value === '') {
-        callback(new Error('Please input the password again'))
+        cb(new Error('Please input the password again'))
       } else if (value !== this.form.password) {
-        callback(new Error("Two inputs don't match!"))
+        cb(new Error("Two inputs don't match!"))
       } else {
-        callback()
+        cb()
       }
     },
 
-    async checkMailExist (rule, value, callback) {
+    async checkMailExist (rule, value, cb) {
       const params = { email: value }
 
       const res = await get('get-user', params)
 
+      console.log('res ===> ', res)
+
       if (res.data === 'exists') {
-        callback(new Error('An account is already attached to this email address'))
+        cb(new Error('An account is already attached to this email address'))
       } else {
-        callback()
+        cb()
       }
     },
 
@@ -146,9 +148,11 @@ export default {
       this.$refs['form'].validate(async (valid) => {
         if (valid) {
           try {
-            const res = await createAccount(form)
+            const res = await put('create-account', form)
 
+            console.log('res   ===> ', res)
             if (res.status === 201) {
+
             } else if (res.data === 'existing mail') {
               this.error.email = undefined
               // this.error.email = 'An account is already attached to this email address'

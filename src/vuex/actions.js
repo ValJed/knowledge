@@ -24,9 +24,15 @@ export default {
     }
   },
 
-  addproject ({ commit, getters, state }) {
-    console.log('=============> GET addproject <================')
+  async addProject ({ commit, getters, state }, projectName) {
+    const { _id } = state.user
+    const data = {
+      _id,
+      projectName
+    }
+    const res = await post('create-project', data)
 
+    console.log('res ===> ', res)
     // commit(types.STORE_PROJECTS, )
   }
 
