@@ -80,8 +80,10 @@ export default {
             password: form.password
           }
 
-          await this.logUser(credentials)
-          this.$router.push({ path: `/${this.user._id}` })
+          const logged = await this.logUser(credentials)
+          if (logged) {
+            this.$router.push({ path: `/${this.user._id}` })
+          }
         }
       })
     }

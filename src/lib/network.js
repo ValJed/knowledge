@@ -50,6 +50,8 @@ export const post = async (route, data = {}) => {
     ...token ? { 'Authorization': `Bearer ${token}` } : {}
   }
 
+  console.log('headers ===> ', headers)
+
   try {
     return await axios({
       method: 'post',
@@ -70,7 +72,7 @@ const getToken = () => {
   const cookies = document.cookie.split(';')
 
   const token = cookies
-    .find((token) => token.split('=')[0])
+    .find((token) => token.split('=')[0].trim() === 'knowledge-token')
 
-  return token.split('=').splice(1).join('=')
+  return token ? token.split('=').splice(1).join('=') : ''
 }

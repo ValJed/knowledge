@@ -1,2 +1,3 @@
 export const STORE_USER = 'STORE_USER'
 export const STORE_PROJECTS = 'STORE_PROJECTS'
+export const ADD_PROJECT = 'ADD_PROJECT'

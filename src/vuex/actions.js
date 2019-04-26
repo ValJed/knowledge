@@ -12,20 +12,26 @@ export default {
       if (res.status === 200) {
         const date = new Date()
         date.setDate(date.getDate() + 1)
-        document.cookie = `token=${res.data.token}; expires=${date}.`
+        document.cookie = `knowledge-token=${res.data.token}; expires=${date}.`
+
+        console.log('res.data ===> ', res.data)
 
         commit(types.STORE_USER, res.data.user)
         commit(types.STORE_PROJECTS, res.data.projects)
+        return true
       } else if (res.status === 401) {
-        console.log('Unhautorized access')
+        console.log('Unauthorized access')
+        return false
       }
     } catch (err) {
       console.error('error ===> ', err)
+      return false
     }
   },
 
   async addProject ({ commit, getters, state }, projectName) {
     const { _id } = state.user
+
     const data = {
       _id,
       projectName
@@ -33,7 +39,9 @@ export default {
     const res = await post('create-project', data)
 
     console.log('res ===> ', res)
-    // commit(types.STORE_PROJECTS, )
+    if (res.status === 200) {
+      commit(types.ADD_PROJECT, res.data)
+    }
   }
 
   // toggleField ({ commit, getters, state }, field) {

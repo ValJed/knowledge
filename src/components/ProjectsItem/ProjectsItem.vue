@@ -5,6 +5,9 @@
       <div class="item-content">
         <img src="https://fakeimg.pl/300x150/">
         <p>{{ project.description }}</p>
+        <el-button type="primary" @click="accessProject()">
+          Access Project
+        </el-button>
       </div>
     </div>
   </el-col>
@@ -12,6 +15,7 @@
 
 <script>
 import { get } from '../../lib/network'
+import { mapState } from 'vuex'
 
 export default {
   name: 'ProjectsItem',
@@ -26,31 +30,24 @@ export default {
     project: {
       type: Object,
       required: true
-      // _id: {
-      //   type: String
-      // },
-      // name: {
-      //   type: String
-      // },
-      // description: {
-      //   type: String
-      // },
-      // fields: {
-      //   type: Object
-      // },
-      // img: {
-      //   type: String
-      // },
-      // owners: {
-      //   type: Array
-      // }
     }
   },
+  computed: {
+    ...mapState(['user'])
+  },
   methods: {
-    getSession: () => {
+    getSession () {
       const res = get('session')
 
       console.log('res ===> ', res)
+    },
+    accessProject () {
+      console.log('this.project ===> ', this.project)
+      const projectSlug = this.project.name.toLowerCase().replace(' ', '-')
+
+      console.log('projectSlug ===> ', projectSlug)
+
+      this.$router.push({ path: `/${this.user._id}/${projectSlug}` })
     }
   },
   mounted () {
