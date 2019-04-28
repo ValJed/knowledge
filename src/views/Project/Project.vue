@@ -12,6 +12,7 @@
 <script>
 import Sidebar from '@/views/Sidebar/Sidebar.vue'
 import DocPage from '@/views/DocPage/DocPage.vue'
+// import { mapState } from 'vuex'
 
 export default {
   name: 'Project',
@@ -23,6 +24,13 @@ export default {
     return {
       msg: 'MY home'
     }
+  },
+  computed: {
+    // ...mapState(['user, projects', 'currentProject'])
+    // ...mapGetters(['getCurrentProject'])
+  },
+  mounted () {
+    console.log(' ===> ')
   }
 }
 </script>

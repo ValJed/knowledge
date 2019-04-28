@@ -20,12 +20,17 @@ export const createRouter = () => {
 
       },
       {
-        path: '/:id/project',
+        path: '/:id/:project',
         name: 'Project',
         // route level code-splitting
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
         component: () => import('./views/Project/Project.vue')
+      },
+      {
+        path: '*',
+        name: '404',
+        component: () => import('./views/404/404.vue')
       }
     ]
   })

@@ -43,7 +43,7 @@ export default {
     return {
       form: {
         email: 'test@test.com',
-        password: 'toto'
+        password: 'tototo'
       },
       formRules: {
         email: [

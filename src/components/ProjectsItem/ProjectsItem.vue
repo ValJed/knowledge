@@ -1,6 +1,6 @@
 <template>
   <el-col :span="8">
-    <div @click="getSession" class="item-container">
+    <div class="item-container">
       <h3>{{ project.name }}</h3>
       <div class="item-content">
         <img src="https://fakeimg.pl/300x150/">
@@ -15,17 +15,17 @@
 
 <script>
 import { get } from '../../lib/network'
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 
 export default {
   name: 'ProjectsItem',
   components: {
   },
-  data () {
-    return {
-      title: 'MY Project item'
-    }
-  },
+  // data () {
+  //   return {
+  //     title: 'MY Project item'
+  //   }
+  // },
   props: {
     project: {
       type: Object,
@@ -36,17 +36,13 @@ export default {
     ...mapState(['user'])
   },
   methods: {
-    getSession () {
-      const res = get('session')
-
-      console.log('res ===> ', res)
-    },
+    ...mapMutations({
+      setCurrentProject: 'SET_CURRENT_PROJECT'
+    }),
     accessProject () {
-      console.log('this.project ===> ', this.project)
       const projectSlug = this.project.name.toLowerCase().replace(' ', '-')
 
-      console.log('projectSlug ===> ', projectSlug)
-
+      this.setCurrentProject(this.project)
       this.$router.push({ path: `/${this.user._id}/${projectSlug}` })
     }
   },
