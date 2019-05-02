@@ -1,12 +1,9 @@
 <template>
   <div class="editor-block">
-    <editor-menu-bar
-      class="menubar"
-      :editor="editor"
-    >
+    <editor-menu-bar :editor="editor">
       <div
         slot-scope="{ commands, isActive }"
-        class="menubar__button"
+        class="menubar"
       >
         <button
           class="menubar__button"
@@ -25,49 +22,42 @@
           :class="{ 'is-active': isActive.bold() }"
           @click="commands.bold"
         >
-          Bold
+          <icon name="bold" />
         </button>
         <button
           class="menubar__button"
           :class="{ 'is-active': isActive.italic() }"
           @click="commands.italic"
         >
-          Italic
+          <icon name="italic" />
         </button>
         <button
           class="menubar__button"
           :class="{ 'is-active': isActive.strike() }"
           @click="commands.stike"
         >
-          Strike
+          <icon name="strike" />
         </button>
         <button
           class="menubar__button"
           :class="{ 'is-active': isActive.underline() }"
           @click="commands.underline"
         >
-          Underline
-        </button>
-        <button
-          class="menubar__button"
-          :class="{ 'is-active': isActive.underline() }"
-          @click="commands.underline"
-        >
-          Underline
+          <icon name="underline" />
         </button>
         <button
           class="menubar__button"
           :class="{ 'is-active': isActive.code() }"
           @click="commands.code"
         >
-          Code
+          <icon name="code" />
         </button>
         <button
           class="menubar__button"
           :class="{ 'is-active': isActive.paragraph() }"
           @click="commands.paragraph"
         >
-          Paragraph
+          <icon name="paragraph" />
         </button>
         <button
           class="menubar__button"
@@ -95,35 +85,85 @@
           :class="{ 'is-active': isActive.bullet_list() }"
           @click="commands.bullet_list"
         >
-          bullet list
+          <icon name="ul" />
         </button>
         <button
           class="menubar__button"
           :class="{ 'is-active': isActive.ordered_list() }"
           @click="commands.ordered_list"
         >
-          list
+          <icon name="ol" />
         </button>
         <button
           class="menubar__button"
           :class="{ 'is-active': isActive.blockquote() }"
           @click="commands.blockquote"
         >
-          code
+          <icon name="quote" />
         </button>
         <button
           class="menubar__button"
           :class="{ 'is-active': isActive.code_block() }"
           @click="commands.code_block"
         >
-          code
+          <icon name="code" />
         </button>
         <button
           class="menubar__button"
           @click="commands.createTable({rowsCount: 3, colsCount: 3, withHeaderRow: false })"
         >
-          Table
+          <icon name="table" />
         </button>
+        <span v-if="isActive.table()">
+          <button
+            class="menubar__button"
+            @click="commands.deleteTable"
+          >
+            <icon name="delete_table" />
+          </button>
+          <button
+            class="menubar__button"
+            @click="commands.addColumnBefore"
+          >
+            <icon name="add_col_before" />
+          </button>
+          <button
+            class="menubar__button"
+            @click="commands.addColumnAfter"
+          >
+            <icon name="add_col_after" />
+          </button>
+          <button
+            class="menubar__button"
+            @click="commands.deleteColumn"
+          >
+            <icon name="delete_col" />
+          </button>
+          <button
+            class="menubar__button"
+            @click="commands.addRowBefore"
+          >
+            <icon name="add_row_before" />
+          </button>
+          <button
+            class="menubar__button"
+            @click="commands.addRowAfter"
+          >
+            <icon name="add_row_after" />
+          </button>
+          <button
+            class="menubar__button"
+            @click="commands.deleteRow"
+          >
+            <icon name="delete_row" />
+          </button>
+          <button
+            class="menubar__button"
+            @click="commands.toggleCellMerge"
+          >
+            <icon name="combine_cells" />
+          </button>
+        </span>
       </div>
     </editor-menu-bar>
     <editor-content
@@ -151,6 +191,10 @@ import {
   Code,
   Italic,
   Link,
+  Table,
+  TableHeader,
+  TableCell,
+  TableRow,
   Strike,
   Underline,
   History
@@ -161,35 +205,19 @@ export default {
   components: {
     Icon,
     EditorContent,
-    EditorMenuBar,
-    Blockquote,
-    CodeBlock,
-    HardBreak,
-    Heading,
-    OrderedList,
-    BulletList,
-    ListItem,
-    TodoItem,
-    TodoList,
-    Bold,
-    Code,
-    Italic,
-    Link,
-    Strike,
-    Underline,
-    History
+    EditorMenuBar
   },
   data () {
     return {
       editor: new Editor({
         extensions: [
           new Blockquote(),
+          new BulletList(),
           new CodeBlock(),
           new HardBreak(),
           new Heading({ levels: [1, 2, 3] }),
-          new BulletList(),
-          new OrderedList(),
           new ListItem(),
+          new OrderedList(),
           new TodoItem(),
           new TodoList(),
           new Bold(),
@@ -198,7 +226,11 @@ export default {
           new Link(),
           new Strike(),
           new Underline(),
-          new History()
+          new History(),
+          new Table(),
+          new TableHeader(),
+          new TableCell(),
+          new TableRow()
         ],
         content: `<h1>Type your content here!</h1>`
       })
@@ -212,3 +244,5 @@ export default {
   }
 }
 </script>
+
+<style src="./EditorBlock.scss" scoped lang='scss'></style>

@@ -1,25 +1,37 @@
 <template>
-  <el-col :span=5>
+  <el-col :span="5">
     <h3>Log to your account</h3>
     <el-form
-    :model="form"
-    status-icon
-    :rules="formRules"
-    ref="form">
-      <el-form-item label="Email" prop="email">
+      ref="form"
+      :model="form"
+      status-icon
+      :rules="formRules"
+    >
+      <el-form-item
+        label="Email"
+        prop="email"
+      >
         <el-input
-        type="email"
-        v-model="form.email"
-        placeholder="Email"></el-input>
+          v-model="form.email"
+          type="email"
+          placeholder="Email"
+        />
       </el-form-item>
-      <el-form-item label="Password" prop="password">
+      <el-form-item
+        label="Password"
+        prop="password"
+      >
         <el-input
-        type="password"
-        v-model="form.password"
-        placeholder="Password"></el-input>
+          v-model="form.password"
+          type="password"
+          placeholder="Password"
+        />
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm(form)">
+        <el-button
+          type="primary"
+          @click="submitForm(form)"
+        >
           Login
         </el-button>
       </el-form-item>

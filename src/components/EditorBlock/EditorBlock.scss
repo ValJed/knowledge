@@ -1,0 +1,14 @@
+@import '@/assets/scss/variables.scss';
+
+.editor-block {
+  .menubar {
+    .menubar__button {
+      // background: $color1;
+      height: 2rem;
+      background: #fff;
+      border: none;
+      cursor: pointer;
+
+    }
+  }
+}
