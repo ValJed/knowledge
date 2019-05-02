@@ -11,12 +11,12 @@ export const createRouter = () => {
       {
         path: '/',
         name: 'Home',
-        component: () => import('./views/Home/Home.vue')
+        component: () => import('./views/Home')
       },
       {
         path: '/:id',
         name: 'User',
-        component: () => import('./views/User/User.vue')
+        component: () => import('./views/User')
 
       },
       {
@@ -25,12 +25,12 @@ export const createRouter = () => {
         // route level code-splitting
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
-        component: () => import('./views/Project/Project.vue')
+        component: () => import('./views/Project')
       },
       {
         path: '*',
         name: '404',
-        component: () => import('./views/404/404.vue')
+        component: () => import('./views/404')
       }
     ]
   })

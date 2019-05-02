@@ -3,12 +3,12 @@
     <el-header height="3rem">
       <banner />
     </el-header>
-    <router-view></router-view>
+    <router-view />
   </el-container>
 </template>
 
 <script>
-import Banner from '@/components/Banner/Banner.vue'
+import Banner from '@/components/Banner'
 // import gql from 'graphql-tag'
 // import { dev } from '../config'
 
