@@ -2,42 +2,62 @@
   <el-col :span="5">
     <h3>Create an account</h3>
     <el-form
-    :model="form"
-    status-icon
-    :rules="formRules"
-    ref="form">
-      <el-form-item label="Pseudo" prop="pseudo">
+      ref="form"
+      :model="form"
+      status-icon
+      :rules="formRules"
+    >
+      <el-form-item
+        label="Pseudo"
+        prop="pseudo"
+      >
         <el-input
-        type="name"
-        v-model="form.pseudo"
-        placeholder="Pseudo"></el-input>
+          v-model="form.pseudo"
+          type="name"
+          placeholder="Pseudo"
+        />
       </el-form-item>
-      <el-form-item label="Email" prop="email" :error="error.email">
+      <el-form-item
+        label="Email"
+        prop="email"
+        :error="error.email"
+      >
         <el-input
-        type="email"
-        v-model="form.email"
-        placeholder="Email"
-        @input="cleanMailErrors"></el-input>
+          v-model="form.email"
+          type="email"
+          placeholder="Email"
+          @input="cleanMailErrors"
+        />
       </el-form-item>
-      <el-form-item label="Password" prop="password">
+      <el-form-item
+        label="Password"
+        prop="password"
+      >
         <el-input
-        type="password"
-        v-model="form.password"
-        placeholder="Password"
-        autocomplete="off"></el-input>
-      </el-form-item>
-      <el-form-item label="Confirm password" prop="checkPassword">
-        <el-input
+          v-model="form.password"
           type="password"
-          v-model="form.checkPassword"
           placeholder="Password"
           autocomplete="off"
-        ></el-input>
+        />
+      </el-form-item>
+      <el-form-item
+        label="Confirm password"
+        prop="checkPassword"
+      >
+        <el-input
+          v-model="form.checkPassword"
+          type="password"
+          placeholder="Password"
+          autocomplete="off"
+        />
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm(form)">
+        <el-button
+          type="primary"
+          @click="submitForm(form)"
+        >
           Create account
-          </el-button>
+        </el-button>
       </el-form-item>
     </el-form>
   </el-col>
@@ -130,8 +150,6 @@ export default {
       const params = { email: value }
 
       const res = await get('get-user', params)
-
-      console.log('res ===> ', res)
 
       if (res.data === 'exists') {
         cb(new Error('An account is already attached to this email address'))

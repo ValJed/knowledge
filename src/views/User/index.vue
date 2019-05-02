@@ -1,9 +1,13 @@
 <template>
   <el-container>
     <el-main>
-      <el-row type="flex" justify="center" class="projects-container">
-        <el-col :span='18'>
-          <projects-list></projects-list>
+      <el-row
+        type="flex"
+        justify="center"
+        class="projects-container"
+      >
+        <el-col :span="18">
+          <projects-list />
         </el-col>
       </el-row>
     </el-main>
@@ -11,7 +15,7 @@
 </template>
 
 <script>
-import ProjectsList from '@/components/ProjectsList/ProjectsList.vue'
+import ProjectsList from '@/components/ProjectsList'
 import {
   // mapActions,
   mapState
@@ -30,11 +34,11 @@ export default {
   computed: {
     ...mapState(['user'])
   },
-  methods: {
-    // ...mapActions(['getProjects'])
-  },
   created () {
     // this.getProjects()
+  },
+  methods: {
+    // ...mapActions(['getProjects'])
   }
 }
 </script>

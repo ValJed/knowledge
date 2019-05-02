@@ -1,6 +1,6 @@
 <template>
   <el-row class="docPage">
-    <el-col :span=24>
+    <el-col :span="24">
       <h3>{{ currentProject.name }}</h3>
       <p>{{ currentProject.description }}</p>
       <editor-block />
@@ -10,8 +10,8 @@
 
 <script>
 import { mapState } from 'vuex'
-import EditorBlock from '@/components/EditorBlock/EditorBlock.vue'
-// import ProjectsList from '@/components/ProjectsList/ProjectsList.vue'
+import EditorBlock from '@/components/EditorBlock'
+// import ProjectsList from '@/components/ProjectsList'
 
 export default {
   name: 'DocPage',

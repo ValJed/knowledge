@@ -14,17 +14,21 @@
           </div>
         </el-col>
       </el-row>
-        <el-row :gutter="70" type="flex" justify="center">
-          <login></login>
-          <create-account></create-account>
-        </el-row>
+      <el-row
+        :gutter="70"
+        type="flex"
+        justify="center"
+      >
+        <login />
+        <create-account />
+      </el-row>
     </el-main>
   </el-container>
 </template>
 
 <script>
-import Login from '@/components/Login/Login.vue'
-import CreateAccount from '@/components/CreateAccount/CreateAccount.vue'
+import Login from '@/components/Login'
+import CreateAccount from '@/components/CreateAccount'
 
 export default {
   name: 'Home',

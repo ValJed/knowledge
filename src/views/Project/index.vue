@@ -1,17 +1,17 @@
 <template>
   <el-container>
     <el-aside>
-      <sidebar/>
+      <sidebar />
     </el-aside>
     <el-main>
-      <doc-page></doc-page>
+      <doc-page />
     </el-main>
   </el-container>
 </template>
 
 <script>
-import Sidebar from '@/views/Sidebar/Sidebar.vue'
-import DocPage from '@/views/DocPage/DocPage.vue'
+import Sidebar from '@/views/Sidebar'
+import DocPage from '@/views/DocPage'
 // import { mapState } from 'vuex'
 
 export default {

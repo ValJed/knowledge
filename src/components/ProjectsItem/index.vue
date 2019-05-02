@@ -5,7 +5,10 @@
       <div class="item-content">
         <img src="https://fakeimg.pl/300x150/">
         <p>{{ project.description }}</p>
-        <el-button type="primary" @click="accessProject()">
+        <el-button
+          type="primary"
+          @click="accessProject()"
+        >
           Access Project
         </el-button>
       </div>

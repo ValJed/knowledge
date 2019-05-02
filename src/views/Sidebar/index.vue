@@ -1,16 +1,19 @@
 <template>
-  <el-row class="docPage">
-    <el-col :span=24>
-      <h1>This page doesn't exist !!</h1>
+  <el-row class="sidebar">
+    <el-col :span="24">
+      <h3>My sidebar</h3>
+      <sidebar-nav />
     </el-col>
   </el-row>
 </template>
 
 <script>
+import SidebarNav from '@/views/SidebarNav.vue'
 
 export default {
-  name: '404',
+  name: 'Sidebar',
   components: {
+    SidebarNav
   },
   data () {
     return {
@@ -21,4 +24,4 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style src="./404.scss" scoped lang='scss'></style>
+<style src='./Sidebar.scss' scoped lang='scss'></style>
