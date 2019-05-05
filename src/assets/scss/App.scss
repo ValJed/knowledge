@@ -28,6 +28,13 @@ li {
     color: #fff;
     text-decoration: none;
   }
+  code {
+    font-family: 'Inconsolata', 'Avenir', sans-serif;
+  }
+  // Global style for element.io components
+  .el-menu {
+    background: none;
+  }
 }
 #nav {
   padding: 30px;
@@ -40,4 +47,13 @@ li {
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+
+// Global style for tiptap editor container
+.ProseMirror {
+  padding-bottom: 1rem;
+  &:focus {
+    outline: none;
+  }
 }

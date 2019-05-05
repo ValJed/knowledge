@@ -1,14 +1,11 @@
-@import '@/assets/scss/variables.scss';
-
 .icon {
   position: relative;
   display: inline-block;
   vertical-align: middle;
-  width: 0.8rem;
-  height: 0.8rem;
+  // width: 0.8rem;
+  // height: 0.8rem;
   margin: 0 .3rem;
   top: -.05rem;
-  fill: $color1;
   // &.has-align-fix {
   // 	top: -.1rem;
   // }
@@ -33,10 +30,7 @@ symbol {
   rect,
   circle,
   g {
-    fill: $color1;
+    // fill: $color1;
     stroke: none;
-  }
-  *[d="M0 0h24v24H0z"] {
-    // display: none;
   }
 }
