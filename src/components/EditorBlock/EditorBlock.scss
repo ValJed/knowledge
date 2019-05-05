@@ -1,5 +1,3 @@
-@import '@/assets/scss/variables.scss';
-
 .editor-block {
   .menubar {
     .menubar__button {
@@ -8,7 +6,101 @@
       background: #fff;
       border: none;
       cursor: pointer;
+      color: $color1;
+    }
+  }
+  .content {
+    // padding: 1rem 0;
+    // h1,
+    // h2,
+    // h3 {
 
+    // }
+    h1 {
+      font-size: 1.8rem;
+      margin-top: 1rem;
+    }
+    h2 {
+      font-size: 1.6rem;
+    }
+    h3 {
+      font-size: 1.4rem;
+    }
+    code {
+      padding: .5rem;
+      background: #000;
+      color: #fff;
+      border-radius: 5px;
+    }
+    ul {
+      padding-left: 1.5rem;
+      li {
+        list-style: disc;
+      }
+    }
+    table {
+      border-collapse: collapse;
+      table-layout: fixed;
+      width: 100%;
+      margin: 0;
+      overflow: hidden;
+
+      td, th {
+        min-width: 1em;
+        border: 2px solid grey;
+        padding: 3px 5px;
+        vertical-align: top;
+        box-sizing: border-box;
+        position: relative;
+        > * {
+          margin-bottom: 0;
+        }
+      }
+
+      th {
+        font-weight: bold;
+        text-align: left;
+      }
+
+      .selectedCell:after {
+        z-index: 2;
+        position: absolute;
+        content: "";
+        left: 0; right: 0; top: 0; bottom: 0;
+        background: rgba(200, 200, 255, 0.4);
+        pointer-events: none;
+      }
+
+      .column-resize-handle {
+        position: absolute;
+        right: -2px; top: 0; bottom: 0;
+        width: 4px;
+        z-index: 20;
+        background-color: #adf;
+        pointer-events: none;
+      }
+    }
+    pre {
+      padding: 0.7rem 1rem;
+      border-radius: 5px;
+      background: $color1;
+      color: #fff;
+      font-size: 0.8rem;
+      overflow-x: auto;
+
+      code {
+        display: block;
+      }
+    }
+
+    p code {
+      display: inline-block;
+      padding: 0 0.4rem;
+      border-radius: 5px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      background: rgba($color1, 0.1);
+      color: rgba($color1, 0.8);
     }
   }
 }
