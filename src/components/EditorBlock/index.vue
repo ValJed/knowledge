@@ -13,7 +13,7 @@
         </button>
         <button
           class="menubar__button"
-          @click="commands.undo"
+          @click="commands.redo"
         >
           <icon name="redo" />
         </button>
@@ -34,7 +34,7 @@
         <button
           class="menubar__button"
           :class="{ 'is-active': isActive.strike() }"
-          @click="commands.stike"
+          @click="commands.strike"
         >
           <icon name="strike" />
         </button>
@@ -167,7 +167,7 @@
       </div>
     </editor-menu-bar>
     <editor-content
-      class="editor__content"
+      class="content"
       :editor="editor"
     />
   </div>
@@ -245,4 +245,4 @@ export default {
 }
 </script>
 
-<style src="./EditorBlock.scss" scoped lang='scss'></style>
+<style src="./EditorBlock.scss" lang='scss'></style>

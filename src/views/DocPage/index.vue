@@ -1,11 +1,9 @@
 <template>
-  <el-row class="docPage">
-    <el-col :span="24">
-      <h3>{{ currentProject.name }}</h3>
-      <p>{{ currentProject.description }}</p>
-      <editor-block />
-    </el-col>
-  </el-row>
+  <div class="docPage">
+    <h3>{{ currentProject.name }}</h3>
+    <p>{{ currentProject.description }}</p>
+    <editor-block />
+  </div>
 </template>
 
 <script>

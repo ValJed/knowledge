@@ -7,7 +7,7 @@
         @click="openForm = !openForm"
       >
         <svg>
-          <use xlink:href="../../assets/svg/add.svg#add" />
+          <use xlink:href="/sprite.svg#cross" />
         </svg>
       </div>
       <div

@@ -1,14 +1,16 @@
 <template>
   <el-row class="sidebar">
     <el-col :span="24">
-      <h3>My sidebar</h3>
+      <h3>{{ currentProject.name }}</h3>
       <sidebar-nav />
     </el-col>
   </el-row>
 </template>
 
 <script>
-import SidebarNav from '@/views/SidebarNav.vue'
+// import SidebarNav from '@/views/SidebarNav.vue'
+import SidebarNav from '@/components/SidebarNav'
+import { mapState } from 'vuex'
 
 export default {
   name: 'Sidebar',
@@ -19,6 +21,9 @@ export default {
     return {
       msg: 'MESSAGE COOL'
     }
+  },
+  computed: {
+    ...mapState(['currentProject'])
   }
 }
 </script>

@@ -2,9 +2,13 @@
 <template>
   <div
     class="icon"
-    :class="[`icon--${name}`, `icon--${size}`, { 'has-align-fix': fixAlign }]"
+    :class="`icon--${name}`"
+    :style="iconStyle"
   >
-    <svg class="icon__svg">
+    <svg
+      class="icon__svg"
+      :style="svgStyle"
+    >
       <use
         xmlns:xlink="http://www.w3.org/1999/xlink"
         :href="`/sprite.svg#${ name }`"
@@ -17,19 +21,32 @@
 export default {
   // :href="../../assets/images/icons/code.svg#code"
   props: {
-    name: {},
+    name: {
+      default: '',
+      type: String,
+      required: true
+    },
     size: {
-      default: 'normal'
+      default: 0.8,
+      type: Number,
+      required: false
     },
-    modifier: {
-      default: null
-    },
-    fixAlign: {
-      default: true
+    color: {
+      default: 'teal',
+      type: String,
+      required: false
     }
   },
-  mounted () {
-    console.log('this.name ===> ', this.name)
+  data () {
+    return {
+      iconStyle: {
+        width: `${this.size}rem`,
+        height: `${this.size}rem`
+      },
+      svgStyle: {
+        fill: `${this.color}`
+      }
+    }
   }
 }
 </script>
