@@ -3,7 +3,7 @@ const VueSSRClientPlugin = require('vue-server-renderer/client-plugin')
 const nodeExternals = require('webpack-node-externals')
 const merge = require('lodash.merge')
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
-const path = require('path')
+// const path = require('path')
 const globby = require('globby')
 // const fs = require('fs')
 
@@ -22,8 +22,6 @@ const pathToIcons = './src/assets/images/icons/**'
 
 const iconsEntries = globby.sync(pathToIcons)
 
-console.log('iconsEntries ===> ', require('util').inspect(iconsEntries, { colors: true, depth: 2 }))
-
 module.exports = {
   devServer: {
     headers: {
@@ -31,7 +29,14 @@ module.exports = {
     }
   },
   css: {
-    extract: prod
+    extract: prod,
+    loaderOptions: {
+      sass: {
+        data: `
+          @import "@/assets/scss/element-variables.scss";
+        `
+      }
+    }
   },
   configureWebpack: () => ({
     entry: [
