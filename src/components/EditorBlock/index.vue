@@ -236,9 +236,6 @@ export default {
       })
     }
   },
-  mounted () {
-    // this.editor = new Editor()
-  },
   beforeDestroy () {
     this.editor.destroy()
   }
