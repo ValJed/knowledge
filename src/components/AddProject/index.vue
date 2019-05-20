@@ -3,8 +3,8 @@
     <div class="add-project-container">
       <div
         class="cross"
-        :class="{ corner: openForm }"
-        @click="openForm = !openForm"
+        :class="{ corner: openedForm }"
+        @click="openedForm = !openedForm"
       >
         <svg>
           <use xlink:href="/sprite.svg#cross" />
@@ -12,7 +12,7 @@
       </div>
       <div
         class="add-project-container__form"
-        :class="{ show: openForm }"
+        :class="{ show: openedForm }"
       >
         <el-form
           ref="form"
@@ -53,7 +53,7 @@ export default {
   },
   data () {
     return {
-      openForm: false,
+      openedForm: false,
       form: {
         name: ''
       }
@@ -67,10 +67,6 @@ export default {
     // async createProject (form) {
     //   await this.addProject(form)
     // }
-  },
-  mounted () {
-    console.log('this.project ===> ', this.projects)
-    // this.getProjects(this.user._id)
   }
 }
 </script>
