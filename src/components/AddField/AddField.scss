@@ -1,5 +1,21 @@
-.addField {
-  .open-form {
+.add-field {
+  &-content {
+    position: relative;
     margin-right: .5rem;
+    cursor: pointer;
+    &__form {
+      position: absolute;
+      right: 100%;
+    }
+
+    .toto {
+      height: 1rem;
+    }
+
+    &.open {
+      .add-field-content__form {
+        display: block;
+      }
+    }
   }
 }
