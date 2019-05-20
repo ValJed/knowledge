@@ -17,7 +17,6 @@
 </template>
 
 <script>
-import { get } from '../../lib/network'
 import { mapState, mapMutations } from 'vuex'
 
 export default {
@@ -48,9 +47,6 @@ export default {
       this.setCurrentProject(this.project)
       this.$router.push({ path: `/${this.user._id}/${projectSlug}` })
     }
-  },
-  mounted () {
-    console.log('this.project ===> ', this.project)
   }
 }
 </script>
