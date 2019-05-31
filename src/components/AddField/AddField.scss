@@ -1,20 +1,60 @@
 .add-field {
   &-content {
+    width: 60%;
     position: relative;
     margin-right: .5rem;
+    height: 1.5rem;
     cursor: pointer;
-    &__form {
+    &__title {
       position: absolute;
-      right: 100%;
+      top: 0;
+      left: 0;
+      transition: all .1s linear .1s;
     }
-
-    .toto {
-      height: 1rem;
+    .icon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      transition: all .2s linear;
+    }
+    .el-form {
+      height: 100%;
+      position: absolute;
+      top: -.3rem;
+      left: 0;
+      &-item {
+        height: 100%;
+        margin: 0;
+        &__content {
+          .el-input {
+            height: 100%;
+            width: 0;
+            overflow: hidden;
+            transition: width .1s linear;
+          }
+        }
+      }
     }
 
     &.open {
-      .add-field-content__form {
-        display: block;
+      .add-field-content__title {
+        position: absolute;
+        top: -1.3rem;
+        left: .8rem;
+        transition: all .1s linear;
+
+      }
+      .el-form {
+        &-item {
+          .el-input {
+            transition: width .1s linear .1s;
+            width: 100%;
+          }
+        }
+      }
+      .icon {
+        transform: rotate(45deg);
+        right: -2rem;
       }
     }
   }

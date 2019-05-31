@@ -6,24 +6,27 @@
       }"
       class="add-field-content"
     >
+      <span class="add-field-content__title">
+        Add a block
+      </span>
+      <el-form
+        rel="form"
+        @submit.native.prevent="submitForm($event, form)"
+      >
+        <el-form-item size="mini">
+          <el-input
+            v-model="form.name"
+            size="mini"
+            type="name"
+            @keyup.enter="addFiel"
+          />
+        </el-form-item>
+      </el-form>
       <icon
         name="cross"
         :size="1.2"
         color="#fff"
       />
-      <span>Add a block</span>
-      <el-form
-        class="add-field-content__form"
-        rel="form"
-      >
-        <el-form-item size="mini">
-          <el-input
-            v-model="form.name"
-            class="toto"
-            type="name"
-          />
-        </el-form-item>
-      </el-form>
     </div>
   </div>
 </template>
@@ -45,6 +48,12 @@ export default {
   },
   computed: {
     ...mapState(['currentProject'])
+  },
+  methods: {
+    submitForm (e, form) {
+      console.log('e ===> ', e)
+      console.log('this.form ===> ', form)
+    }
   }
 }
 </script>

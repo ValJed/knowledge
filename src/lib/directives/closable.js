@@ -6,10 +6,8 @@ export default {
     handleOutsideClick = (e) => {
       const { className } = binding.value
       if (!el.contains(e.target)) {
-        console.log('=============> remove <================')
         el.classList.remove(className)
       } else {
-        console.log('=============> add <================')
         el.classList.add(className)
       }
     }

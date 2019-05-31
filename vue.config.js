@@ -76,7 +76,6 @@ module.exports = {
             // extract: process.env.NODE_ENV === 'production',
             extract: true,
             spriteFilename: (path) => {
-              console.log('path ===> ', path)
               return prod
                 ? './sprite-[hash:6].svg'
                 : './sprite.svg'

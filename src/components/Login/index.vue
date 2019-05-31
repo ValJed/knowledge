@@ -48,9 +48,6 @@ export default {
   name: 'Home',
   components: {
   },
-  computed: {
-    ...mapState(['user', 'projects'])
-  },
   data () {
     return {
       form: {
@@ -78,6 +75,9 @@ export default {
         ]
       }
     }
+  },
+  computed: {
+    ...mapState(['user', 'projects'])
   },
   methods: {
     ...mapActions([
