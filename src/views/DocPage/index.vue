@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 import EditorBlock from '@/components/EditorBlock'
 // import ProjectsList from '@/components/ProjectsList'
 
@@ -23,7 +23,11 @@ export default {
     }
   },
   computed: {
-    ...mapState(['user, projects', 'currentProject'])
+    ...mapState(['user, projects']),
+    ...mapGetters(['currentProject'])
+  },
+  mounted () {
+    console.log('this.currentProject ===> ', this.currentProject)
   }
 }
 </script>

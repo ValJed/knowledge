@@ -15,29 +15,29 @@
           :key="index"
           class="sidebar-nav__field"
         >
-          {{ field }}
+          <field :field="field" />
         </div>
-      </div>
-      <div
-        v-else
-        class="sidebar-nav__content"
-      >
         <add-field />
       </div>
+      <!-- <div
+        class="sidebar-nav__content"
+      /> -->
     </el-menu>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 import AddField from '@/components/AddField'
+import Field from '@/components/Field'
 
 export default {
   components: {
-    AddField
+    AddField,
+    Field
   },
   computed: {
-    ...mapState(['currentProject'])
+    ...mapGetters(['currentProject'])
   },
   methods: {
     handleOpen (key, keyPath) {

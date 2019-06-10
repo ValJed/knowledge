@@ -50,8 +50,6 @@ export const post = async (route, data = {}) => {
     ...token ? { 'Authorization': `Bearer ${token}` } : {}
   }
 
-  console.log('headers ===> ', headers)
-
   try {
     return await axios({
       method: 'post',
@@ -60,7 +58,6 @@ export const post = async (route, data = {}) => {
       headers
     })
   } catch (err) {
-    console.log('err ===> ', err)
     console.error(
       `Error during post request on API:
       ${err}`

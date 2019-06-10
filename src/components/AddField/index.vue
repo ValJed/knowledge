@@ -11,14 +11,13 @@
       </span>
       <el-form
         rel="form"
-        @submit.native.prevent="submitForm($event, form)"
+        @submit.native.prevent="addField(form.name)"
       >
         <el-form-item size="mini">
           <el-input
             v-model="form.name"
             size="mini"
             type="name"
-            @keyup.enter="addFiel"
           />
         </el-form-item>
       </el-form>
@@ -32,7 +31,10 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import {
+  mapActions,
+  mapGetters
+} from 'vuex'
 import Icon from '@/components/Icon'
 
 export default {
@@ -47,13 +49,10 @@ export default {
     }
   },
   computed: {
-    ...mapState(['currentProject'])
+    ...mapGetters(['currentProject'])
   },
   methods: {
-    submitForm (e, form) {
-      console.log('e ===> ', e)
-      console.log('this.form ===> ', form)
-    }
+    ...mapActions(['addField'])
   }
 }
 </script>

@@ -1,16 +1,14 @@
 <template>
-  <el-row class="sidebar">
-    <el-col :span="24">
-      <h3>{{ currentProject.name }}</h3>
-      <sidebar-nav />
-    </el-col>
-  </el-row>
+  <div class="sidebar">
+    <h3>{{ currentProject.name }}</h3>
+    <sidebar-nav />
+  </div>
 </template>
 
 <script>
 // import SidebarNav from '@/views/SidebarNav.vue'
 import SidebarNav from '@/components/SidebarNav'
-import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Sidebar',
@@ -23,7 +21,12 @@ export default {
     }
   },
   computed: {
-    ...mapState(['currentProject'])
+    ...mapGetters(['currentProject'])
+    // ...mapState(['currentProject'])
+  },
+  mounted () {
+    console.log('=============> HERE <================')
+    console.log('this.getCurrentProject ===> ', this.currentProject)
   }
 }
 </script>

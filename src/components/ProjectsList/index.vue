@@ -27,7 +27,6 @@ import {
 } from 'vuex'
 
 export default {
-  name: 'ProjectsList',
   components: {
     ProjectsItem,
     AddProject
@@ -44,7 +43,6 @@ export default {
     ...mapState(['user', 'projects'])
   },
   mounted () {
-    console.log('this.project ===> ', this.projects)
     // this.getProjects(this.user._id)
   },
   methods: {

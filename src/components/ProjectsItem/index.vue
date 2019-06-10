@@ -39,12 +39,12 @@ export default {
   },
   methods: {
     ...mapMutations({
-      setCurrentProject: 'SET_CURRENT_PROJECT'
+      setCurrentProjectId: 'SET_CURRENT_PROJECT_ID'
     }),
     accessProject () {
       const projectSlug = this.project.name.toLowerCase().replace(' ', '-')
 
-      this.setCurrentProject(this.project)
+      this.setCurrentProjectId(this.project._id)
       this.$router.push({ path: `/${this.user._id}/${projectSlug}` })
     }
   }
