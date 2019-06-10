@@ -8,13 +8,10 @@ export default {
     try {
       const res = await post('log-user', data)
 
-      console.log('res ===> ', res)
       if (res.status === 200) {
         const date = new Date()
         date.setDate(date.getDate() + 1)
         document.cookie = `knowledge-token=${res.data.token}; expires=${date}.`
-
-        console.log('res.data ===> ', res.data)
 
         commit(types.STORE_USER, res.data.user)
         commit(types.STORE_PROJECTS, res.data.projects)
@@ -41,6 +38,22 @@ export default {
     console.log('res ===> ', res)
     if (res.status === 200) {
       commit(types.ADD_PROJECT, res.data)
+    }
+  },
+
+  async addField ({ commit, getters, state }, name) {
+    const { _id } = state.currentProject
+
+    const data = {
+      _id,
+      name
+    }
+
+    const res = await post('add-field', data)
+
+    console.log('res ===> ', res)
+    if (res.status === 200) {
+      commit(types.ADD_FIELD, res.data)
     }
   }
 
