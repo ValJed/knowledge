@@ -28,9 +28,6 @@ export default {
   computed: {
     // ...mapState(['user, projects', 'currentProject'])
     // ...mapGetters(['getCurrentProject'])
-  },
-  mounted () {
-    console.log(' ===> ')
   }
 }
 </script>

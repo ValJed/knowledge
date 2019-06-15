@@ -1,11 +1,6 @@
 <template>
   <div class="add-field">
-    <div
-      v-closable="{
-        className: 'open'
-      }"
-      class="add-field-content"
-    >
+    <div class="add-field-content">
       <span class="add-field-content__title">
         Add a block
       </span>

@@ -23,10 +23,6 @@ export default {
   computed: {
     ...mapGetters(['currentProject'])
     // ...mapState(['currentProject'])
-  },
-  mounted () {
-    console.log('=============> HERE <================')
-    console.log('this.getCurrentProject ===> ', this.currentProject)
   }
 }
 </script>

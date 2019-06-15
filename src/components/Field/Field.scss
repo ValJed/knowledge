@@ -1,0 +1,23 @@
+.field {
+  position: relative;
+  margin: 1rem 0;
+  > span {
+    height: 1.2rem;
+    line-height: 1.2rem;
+    display: block;
+    width: 80%;
+    cursor: pointer;
+  }
+  .icon {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+  }
+  &:hover {
+    .icon {
+      display: block;
+    }
+  }
+}

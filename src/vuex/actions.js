@@ -35,7 +35,6 @@ export default {
     }
     const res = await post('create-project', data)
 
-    console.log('res ===> ', res)
     if (res.status === 200) {
       commit(types.ADD_PROJECT, res.data)
     }
@@ -51,10 +50,14 @@ export default {
 
     const res = await post('add-field', data)
 
-    console.log('res ===> ', res)
     if (res.status === 200) {
       commit(types.ADD_FIELD, res.data)
     }
+  },
+
+  async addPage ({ commit, getters, state }, data) {
+    console.log('data ===> ', data)
+    console.log('=============> HERE <================')
   }
 
   // toggleField ({ commit, getters, state }, field) {
@@ -79,31 +82,5 @@ export default {
   //     logError(error)
   //   }
   // },
-
-  // async toggleSearchStarted ({ commit, dispatch, state }) {
-  //   commit(MutTypes.TOGGLE_LOADING, true)
-  //   const { searches, currentSearchType, currentFieldName } = state
-  //   getFieldValuesIfNeeded(searches, currentSearchType, currentFieldName) && await dispatch('getFieldValues', currentFieldName)
-  //   commit(MutTypes.TOGGLE_LOADING, false)
-  //   commit(MutTypes.TOGGLE_SEARCH_STARTED)
-  // },
-
-  // async getFieldValues ({ commit, dispatch, getters, state }, fieldName) {
-  //   try {
-  //     const searchType = state.currentSearchType
-  //     const fields = getters.getFieldsBySearchType
-
-  //     // call API to get values of selected field
-  //     const values = await dispatch('tsuLogic/getFieldValues', { searchType, fieldName, fields }, { root: true })
-  //     if (!values[fieldName].values.length) {
-  //       throw new Error(`The API return no data for ${fieldName}`)
-  //     }
-
-  //     commit(MutTypes.UPDATE_FIELDS_VALUES, values)
-  //   } catch (error) {
-  //     commit(MutTypes.TOGGLE_RENDERED_ERROR, true)
-  //     logError(error)
-  //   }
-  // }
 
 }

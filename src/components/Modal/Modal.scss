@@ -1,0 +1,40 @@
+.modal-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  .modal {
+    background-color: #fff;
+    position: absolute;
+    width: 40%;
+    height: 40%;
+    top: calc(50% - 20%);
+    left: calc(50% - 20%);
+    padding: 1rem;
+    border-radius: .3rem;
+    h3 {
+      margin: 0 0 2rem 0;
+    }
+    form {
+      // background: red;
+      .el-input__inner {
+        height: 5rem;
+      }
+    }
+  }
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: all .3s;
+  .modal {
+    transition: all .3s;
+  }
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  .modal {
+    top: calc(50% - 23%);
+  }
+}

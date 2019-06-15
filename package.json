@@ -4,7 +4,7 @@
   "description": "An easy to use, lightweight documentation application.",
   "private": true,
   "scripts": {
-    "dev": "npm run serve",
+    "dev": "npm run serve:client",
     "serve": "cross-env NODE_ENV=development npm run build && cross-env NODE_ENV=development npm-run-all -p start serve:client",
     "serve:client": "vue-cli-service serve",
     "build": "npm run build:server -- --silent && npm run build:client -- --no-clean --silent",

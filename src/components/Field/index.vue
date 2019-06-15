@@ -1,16 +1,27 @@
 <template>
   <div class="field">
-    <h3>{{ field.name }}</h3>
+    <span>
+      {{ field.name }}
+    </span>
+    <div
+      class="add-field"
+      @click="showModal"
+    >
+      <icon
+        name="cross"
+        :size="1.2"
+        color="#fff"
+      />
+    </div>
   </div>
 </template>
 
 <script>
+import Icon from '@/components/Icon'
 
 export default {
-  // props: {
-  //   field: Object
-  // }
   components: {
+    Icon
   },
   props: {
     field: {
@@ -21,13 +32,16 @@ export default {
   data () {
     return {}
   },
-  computed: {
-  },
-  mounted () {
-    // this.getProjects(this.user._id)
-  },
   methods: {
-    // ...mapActions(['getProjects'])
+    showModal () {
+      const params = {
+        title: `Add a page inside ${this.field.name} block`,
+        field: this.field,
+        actionToTrigger: 'addPage'
+      }
+
+      this.$modal.show(params)
+    }
   }
 }
 </script>

@@ -25,9 +25,6 @@ export default {
   computed: {
     ...mapState(['user, projects']),
     ...mapGetters(['currentProject'])
-  },
-  mounted () {
-    console.log('this.currentProject ===> ', this.currentProject)
   }
 }
 </script>
