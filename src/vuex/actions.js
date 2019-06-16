@@ -49,7 +49,7 @@ export default {
       name
     }
 
-    const res = await post('add-field', data)
+    const res = await post('add-block', data)
 
     if (res.status === 200) {
       commit(types.ADD_BLOCK, res.data)

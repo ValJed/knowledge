@@ -1,35 +1,23 @@
-.add-block {
-  &-content {
-    width: 60%;
-    position: relative;
-    margin-right: .5rem;
-    height: 1.5rem;
+.new-block {
+  position: relative;
+  cursor: pointer;
+  > span {
+    height: 1.2rem;
+    line-height: 1.2rem;
+    display: block;
+    width: 80%;
     cursor: pointer;
-    &__title {
-      position: absolute;
-      top: 0;
-      left: 0;
-      transition: all .1s linear .1s;
-    }
+  }
+  .icon {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+  }
+  &:hover {
     .icon {
-      position: absolute;
-      top: 0;
-      right: 0;
-      transition: all .2s linear;
-    }
-
-    &.open {
-      .add-block-content__title {
-        position: absolute;
-        top: -1.3rem;
-        left: .8rem;
-        transition: all .1s linear;
-
-      }
-      .icon {
-        transform: rotate(45deg);
-        right: -2rem;
-      }
+      display: block;
     }
   }
 }

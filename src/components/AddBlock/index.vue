@@ -1,10 +1,10 @@
 <template>
   <div
-    class="add-block"
+    class="new-block"
     @click="showModal"
   >
-    <span class="add-block-content__title">
-      Add a block
+    <span class="new-block__title">
+      Add a new block
     </span>
     <icon
       name="cross"

@@ -63,12 +63,6 @@ export default {
     })
   },
 
-  mounted () {
-    this.$nextTick(() => {
-      console.log(this.$refs)
-    })
-  },
-
   methods: {
     ...mapActions(['addPage']),
     show (params) {

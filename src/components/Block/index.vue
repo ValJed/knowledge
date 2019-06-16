@@ -1,10 +1,10 @@
 <template>
-  <div class="field">
+  <div class="block">
     <span>
       {{ block.name }}
     </span>
     <div
-      class="add-field"
+      class="block__add"
       @click="showModal"
     >
       <icon
