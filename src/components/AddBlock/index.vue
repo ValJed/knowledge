@@ -40,7 +40,7 @@ export default {
     ...mapActions(['addBlock']),
     showModal () {
       const params = {
-        title: `Add a block inside ${this.currentProject.name} project`,
+        title: `Add a new block inside ${this.currentProject.name} project`,
         field: this.field,
         actionToTrigger: 'addBlock'
       }
