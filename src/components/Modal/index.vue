@@ -78,7 +78,6 @@ export default {
       this.actionToTrigger = this[params.actionToTrigger]
 
       this.$nextTick(() => {
-        console.log('this ===> ', this['addPage'])
         this.$refs.input.focus()
       })
     },

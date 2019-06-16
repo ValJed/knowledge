@@ -1,4 +1,4 @@
-.add-field {
+.add-block {
   &-content {
     width: 60%;
     position: relative;
@@ -17,40 +17,14 @@
       right: 0;
       transition: all .2s linear;
     }
-    .el-form {
-      height: 100%;
-      position: absolute;
-      top: -.3rem;
-      left: 0;
-      &-item {
-        height: 100%;
-        margin: 0;
-        &__content {
-          .el-input {
-            height: 100%;
-            width: 0;
-            overflow: hidden;
-            transition: width .1s linear;
-          }
-        }
-      }
-    }
 
     &.open {
-      .add-field-content__title {
+      .add-block-content__title {
         position: absolute;
         top: -1.3rem;
         left: .8rem;
         transition: all .1s linear;
 
-      }
-      .el-form {
-        &-item {
-          .el-input {
-            transition: width .1s linear .1s;
-            width: 100%;
-          }
-        }
       }
       .icon {
         transform: rotate(45deg);

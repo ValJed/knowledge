@@ -6,18 +6,18 @@
       @close="handleClose"
     >
       <div
-        v-if="currentProject.fields.length"
+        v-if="currentProject.blocks.length"
         class="sidebar-nav__content"
       >
-        there are fields
+        these are blocks :
         <div
-          v-for="(field, index) in currentProject.fields"
+          v-for="(block, index) in currentProject.blocks"
           :key="index"
-          class="sidebar-nav__field"
+          class="sidebar-nav__blocks"
         >
-          <field :field="field" />
+          <block :block="block" />
         </div>
-        <add-field />
+        <add-block />
       </div>
       <!-- <div
         class="sidebar-nav__content"
@@ -28,16 +28,19 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import AddField from '@/components/AddField'
-import Field from '@/components/Field'
+import AddBlock from '@/components/AddBlock'
+import Block from '@/components/Block'
 
 export default {
   components: {
-    AddField,
-    Field
+    AddBlock,
+    Block
   },
   computed: {
     ...mapGetters(['currentProject'])
+  },
+  mounted () {
+    console.log('this.currentProject ===> ', this.currentProject.blocks)
   },
   methods: {
     handleOpen (key, keyPath) {

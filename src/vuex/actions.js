@@ -13,6 +13,7 @@ export default {
         date.setDate(date.getDate() + 1)
         document.cookie = `knowledge-token=${res.data.token}; expires=${date}.`
 
+        console.log('res.data.projects ===> ', res.data.projects)
         commit(types.STORE_USER, res.data.user)
         commit(types.STORE_PROJECTS, res.data.projects)
         return true
@@ -40,7 +41,7 @@ export default {
     }
   },
 
-  async addField ({ commit, getters, state }, name) {
+  async addBlock ({ commit, getters, state }, name) {
     const { _id } = state.currentProject
 
     const data = {
@@ -51,7 +52,7 @@ export default {
     const res = await post('add-field', data)
 
     if (res.status === 200) {
-      commit(types.ADD_FIELD, res.data)
+      commit(types.ADD_BLOCK, res.data)
     }
   },
 

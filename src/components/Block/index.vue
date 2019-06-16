@@ -1,7 +1,7 @@
 <template>
   <div class="field">
     <span>
-      {{ field.name }}
+      {{ block.name }}
     </span>
     <div
       class="add-field"
@@ -24,7 +24,7 @@ export default {
     Icon
   },
   props: {
-    field: {
+    block: {
       type: Object,
       required: true
     }
@@ -35,8 +35,8 @@ export default {
   methods: {
     showModal () {
       const params = {
-        title: `Add a page inside ${this.field.name} block`,
-        field: this.field,
+        title: `Add a page inside ${this.block.name} block`,
+        block: this.block,
         actionToTrigger: 'addPage'
       }
 
@@ -45,4 +45,4 @@ export default {
   }
 }
 </script>
-<style src="./Field.scss" scoped lang='scss'></style>
+<style src="./Block.scss" scoped lang='scss'></style>
