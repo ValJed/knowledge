@@ -42,9 +42,7 @@ export default {
   },
 
   async addBlock ({ commit, getters, state }, data) {
-    const { _id } = state.currentProject
-
-    data._id = _id
+    data._id = state.currentProjectId
 
     const res = await post('add-block', data)
 
@@ -54,8 +52,13 @@ export default {
   },
 
   async addPage ({ commit, getters, state }, data) {
-    console.log('data ===> ', data)
-    console.log('=============> HERE <================')
+    data._id = state.currentProjectId
+
+    const res = await post('add-page', data)
+
+    if (res.status === 200) {
+      commit(types.ADD_PAGE, res.data)
+    }
   }
 
   // toggleField ({ commit, getters, state }, field) {
