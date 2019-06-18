@@ -64,12 +64,16 @@ export default {
   },
 
   methods: {
-    ...mapActions(['addPage']),
+    ...mapActions(['addPage', 'addBlock']),
     show (params) {
       this.visible = true
       this.title = params.title
-      // this.actionToTrigger = params.actionToTrigger
-      this.actionToTrigger = this[params.actionToTrigger]
+
+      if (this[params.actionToTrigger]) {
+        this.actionToTrigger = this[params.actionToTrigger]
+      } else {
+        console.log(`No action difined in the modal for ${params.actionToTrigger}`)
+      }
 
       this.$nextTick(() => {
         this.$refs.input.focus()
@@ -78,9 +82,6 @@ export default {
     close () {
       this.visible = false
       this.form.name = ''
-    },
-    submitForm () {
-
     }
   }
 }

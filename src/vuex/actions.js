@@ -41,13 +41,10 @@ export default {
     }
   },
 
-  async addBlock ({ commit, getters, state }, name) {
+  async addBlock ({ commit, getters, state }, data) {
     const { _id } = state.currentProject
 
-    const data = {
-      _id,
-      name
-    }
+    data._id = _id
 
     const res = await post('add-block', data)
 
