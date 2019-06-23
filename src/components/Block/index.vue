@@ -36,8 +36,10 @@ export default {
     showModal () {
       const params = {
         title: `Add a page inside ${this.block.name} block`,
-        block: this.block,
-        actionToTrigger: 'addPage'
+        actionToTrigger: 'addPage',
+        actionParams: {
+          blockId: this.block._id
+        }
       }
 
       this.$modal.show(params)

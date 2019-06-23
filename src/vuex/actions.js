@@ -56,7 +56,7 @@ export default {
 
     const res = await post('add-page', data)
 
-    if (res.status === 200) {
+    if (res && res.status === 200) {
       commit(types.ADD_PAGE, res.data)
     }
   }

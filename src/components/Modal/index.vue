@@ -13,7 +13,7 @@
         <h3>{{ title }}</h3>
         <el-form
           rel="form"
-          @submit.native.prevent="actionToTrigger(form)"
+          @submit.native.prevent="actionToTrigger"
         >
           <el-form-item>
             <el-input
@@ -26,7 +26,7 @@
           <el-form-item>
             <el-button
               type="primary"
-              @click="actionToTrigger(form)"
+              @click="actionToTrigger({ ...form, ...actionParams })"
             >
               Submit
             </el-button>
@@ -49,6 +49,7 @@ export default {
       title: '',
       content: '',
       actionToTrigger: '',
+      actionParams: {},
       form: {
         name: ''
       }
@@ -68,6 +69,7 @@ export default {
     show (params) {
       this.visible = true
       this.title = params.title
+      this.actionParams = params.actionParams || {}
 
       if (this[params.actionToTrigger]) {
         this.actionToTrigger = this[params.actionToTrigger]
