@@ -17,8 +17,8 @@
         >
           <block :block="block" />
         </div>
-        <add-block />
       </div>
+      <add-block />
       <!-- <div
         class="sidebar-nav__content"
       /> -->

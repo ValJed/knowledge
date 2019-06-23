@@ -10,5 +10,4 @@ export default {
   [types.ADD_PAGE]: (state, payload) => (state.projects.find((project) => project._id === state.currentProjectId).blocks.push(payload))
   // [MutTypes.TOGGLE_SEARCH_STARTED]: (state) => (state.hasSearchStarted = !state.hasSearchStarted),
   // [MutTypes.TOGGLE_SEARCH_TYPE]: (state, payload) => (state.currentSearchType = payload),
-
 }

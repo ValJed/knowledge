@@ -46,7 +46,7 @@ export default {
 
     const res = await post('add-block', data)
 
-    if (res.status === 200) {
+    if (res && res.status === 200) {
       commit(types.ADD_BLOCK, res.data)
     }
   },
