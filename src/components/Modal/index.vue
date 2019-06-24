@@ -13,7 +13,7 @@
         <h3>{{ title }}</h3>
         <el-form
           rel="form"
-          @submit.native.prevent="actionToTrigger"
+          @submit.native.prevent="actionToTrigger({ ...form, ...actionParams })"
         >
           <el-form-item>
             <el-input

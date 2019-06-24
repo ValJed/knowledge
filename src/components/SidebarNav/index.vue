@@ -15,7 +15,7 @@
           :key="index"
           class="sidebar-nav__blocks"
         >
-          <block :block="block" />
+          <block :block="{...block, index}" />
         </div>
       </div>
       <add-block />

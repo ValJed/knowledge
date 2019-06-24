@@ -1,21 +1,39 @@
 <template>
-  <div class="block">
-    <span>
-      {{ block.name }}
-    </span>
+  <el-submenu
+    class="block"
+    :index="block.index"
+  >
+    <template slot="title">
+      <i class="el-icon-location" />
+      <span>{{ block.name }}</span>
+    </template>
     <div
-      class="block__add"
-      @click="showModal"
+      v-if="block.pages.length"
+      class="block-submenu"
     >
-      <icon
-        name="cross"
-        :size="1.2"
-        color="#fff"
-      />
+      <el-submenu
+        v-for="(page, index) in block.pages"
+        :key="index"
+        :index="`${block.index}-${index}`"
+      >
+        <template slot="title">
+          <i class="el-icon-location" />
+          <span>{{ page.name }}</span>
+        </template>
+      </el-submenu>
     </div>
-  </div>
+    <div
+      v-else
+      class="block-item"
+    >
+      <el-menu-item
+        index="1-1"
+      >
+        item un
+      </el-menu-item>
+    </div>
+  </el-submenu>
 </template>
-
 <script>
 import Icon from '@/components/Icon'
 
@@ -31,6 +49,9 @@ export default {
   },
   data () {
     return {}
+  },
+  mounted () {
+    console.log('this.block ===> ', this.block)
   },
   methods: {
     showModal () {

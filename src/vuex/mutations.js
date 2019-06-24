@@ -7,7 +7,8 @@ export default {
   [types.ADD_PROJECT]: (state, payload) => (state.projects.push(payload)),
   [types.SET_CURRENT_PROJECT_ID]: (state, payload) => (state.currentProjectId = payload),
   [types.ADD_BLOCK]: (state, payload) => (state.projects.find((project) => project._id === state.currentProjectId).blocks.push(payload)),
-  [types.ADD_PAGE]: (state, payload) => (state.projects.find((project) => project._id === state.currentProjectId).blocks.push(payload))
-  // [MutTypes.TOGGLE_SEARCH_STARTED]: (state) => (state.hasSearchStarted = !state.hasSearchStarted),
-  // [MutTypes.TOGGLE_SEARCH_TYPE]: (state, payload) => (state.currentSearchType = payload),
+  [types.ADD_PAGE]: (state, payload) => state.projects
+    .find((project) => project._id === state.currentProjectId).blocks // Getting current project blocks
+    .find((block) => block._id === payload.blockId).pages // Getting current block pages
+    .push(payload.data)
 }
