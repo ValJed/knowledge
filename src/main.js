@@ -5,6 +5,7 @@ import { createRouter } from './router'
 import elementUi from 'element-ui'
 import loadDirectives from './lib/directives'
 import loadPlugins from './lib/plugins'
+// import mixins from './lib/mixins'
 
 Vue.config.productionTip = false
 Vue.use(elementUi)

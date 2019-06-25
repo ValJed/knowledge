@@ -1,45 +1,49 @@
 <template>
-  <el-submenu
-    class="block"
-    :index="block.index"
+  <div
+    v-if="block.pages.length"
+    class="block-submenu"
   >
-    <template slot="title">
-      <i class="el-icon-location" />
-      <span>{{ block.name }}</span>
-    </template>
-    <div
-      v-if="block.pages.length"
-      class="block-submenu"
+    <el-submenu
+      :key="block.index"
+      :index="`${block.index}`"
+      class="item-in-block"
     >
-      <el-submenu
+      <template slot="title">
+        <span>{{ block.name }}</span>
+      </template>
+      <i
+        class="el-icon-circle-plus-outline add-icon"
+      />
+      <div
         v-for="(page, index) in block.pages"
         :key="index"
-        :index="`${block.index}-${index}`"
+        class="block__pages"
       >
-        <template slot="title">
-          <i class="el-icon-location" />
-          <span>{{ page.name }}</span>
-        </template>
-      </el-submenu>
-    </div>
-    <div
-      v-else
-      class="block-item"
+        <block-page :page="{...page, index, BlockIndex: block.index}" />
+      </div>
+    </el-submenu>
+  </div>
+  <div
+    v-else
+    class="block-item"
+  >
+    <el-menu-item
+      class="item-in-block"
+      :index="`${block.index}`"
     >
-      <el-menu-item
-        index="1-1"
-      >
-        item un
-      </el-menu-item>
-    </div>
-  </el-submenu>
+      {{ block.name }}
+      <i
+        class="el-icon-circle-plus-outline add-icon"
+      />
+    </el-menu-item>
+  </div>
 </template>
 <script>
-import Icon from '@/components/Icon'
+import BlockPage from '@/components/BlockPage'
 
 export default {
   components: {
-    Icon
+    BlockPage
   },
   props: {
     block: {
@@ -49,9 +53,6 @@ export default {
   },
   data () {
     return {}
-  },
-  mounted () {
-    console.log('this.block ===> ', this.block)
   },
   methods: {
     showModal () {
