@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="block.pages.length"
-    class="block-submenu"
+    class="block block-submenu"
   >
     <el-submenu
       :key="block.index"
@@ -11,9 +11,6 @@
       <template slot="title">
         <span>{{ block.name }}</span>
       </template>
-      <i
-        class="el-icon-circle-plus-outline add-icon"
-      />
       <div
         v-for="(page, index) in block.pages"
         :key="index"
@@ -22,10 +19,13 @@
         <block-page :page="{...page, index, BlockIndex: block.index}" />
       </div>
     </el-submenu>
+    <i
+      class="el-icon-circle-plus-outline add-icon"
+    />
   </div>
   <div
     v-else
-    class="block-item"
+    class="block block-item"
   >
     <el-menu-item
       class="item-in-block"

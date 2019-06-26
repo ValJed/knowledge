@@ -1,12 +1,13 @@
 .block {
   position: relative;
-  > span {
-    height: 1.2rem;
-    line-height: 1.2rem;
-    display: block;
-    width: 80%;
-    cursor: pointer;
-  }
+  // > span {
+  //   height: 1.2rem;
+  //   line-height: 1.2rem;
+  //   display: block;
+  //   background: #000;
+  //   width: 80%;
+  //   cursor: pointer;
+  // }
   &__add {
     display: none;
     position: absolute;

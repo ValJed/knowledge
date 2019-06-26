@@ -9,7 +9,7 @@
     >
       <template slot="title">
         <!-- <i class="el-icon-location" /> -->
-        <span>{{ page.name }}</span> tutu
+        <span>{{ page.name }}</span>
       </template>
     </el-submenu>
   </div>
@@ -21,7 +21,8 @@
       class="item-in-page"
       :index="`${page.blockIndex}-${page.index}`"
     >
-      {{ page.name }}
+      {{ page.name }} toto
+      <i class="el-icon-circle-plus-outline add-icon" />
     </el-menu-item>
   </div>
 </template>

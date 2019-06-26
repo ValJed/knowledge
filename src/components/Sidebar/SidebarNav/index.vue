@@ -10,12 +10,12 @@
         class="sidebar-nav__content"
       >
         these are blocks :
-        <div
-          v-for="(block, index) in currentProject.blocks"
-          :key="index"
-          class="sidebar-nav__blocks"
-        >
-          <block :block="{...block, index}" />
+        <div class="sidebar-nav__blocks">
+          <block
+            v-for="(block, index) in currentProject.blocks"
+            :key="index"
+            :block="{...block, index}"
+          />
         </div>
       </div>
       <add-block />
