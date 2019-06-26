@@ -64,7 +64,7 @@
 </template>
 
 <script>
-import { put, get } from '../../lib/network'
+import { put, get } from '@/lib/network'
 
 export default {
   name: 'Home',

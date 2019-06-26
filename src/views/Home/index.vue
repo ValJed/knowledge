@@ -27,8 +27,8 @@
 </template>
 
 <script>
-import Login from '@/components/Login'
-import CreateAccount from '@/components/CreateAccount'
+import Login from '@/components/Auth/Login'
+import CreateAccount from '@/components/Auth/CreateAccount'
 
 export default {
   name: 'Home',

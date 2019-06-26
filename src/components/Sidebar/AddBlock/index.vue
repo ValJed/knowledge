@@ -20,7 +20,7 @@ import {
   mapActions,
   mapGetters
 } from 'vuex'
-import Icon from '@/components/Icon'
+import Icon from '@/components/Common/Icon'
 
 export default {
   components: {

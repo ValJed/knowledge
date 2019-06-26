@@ -40,8 +40,6 @@
 </template>
 
 <script>
-// import ProjectsList from '@/components/ProjectsList/ProjectsList.vue'
-// import { post } from '../../lib/network'
 import { mapActions, mapState } from 'vuex'
 
 export default {

@@ -175,7 +175,7 @@
 
 <script>
 // Import the editor
-import Icon from '@/components/Icon'
+import Icon from '@/components/Common/Icon'
 import { Editor, EditorContent, EditorMenuBar } from 'tiptap'
 import {
   Blockquote,

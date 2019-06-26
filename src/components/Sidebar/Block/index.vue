@@ -39,7 +39,7 @@
   </div>
 </template>
 <script>
-import BlockPage from '@/components/BlockPage'
+import BlockPage from '@/components/Sidebar/BlockPage'
 
 export default {
   components: {

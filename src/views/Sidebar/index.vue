@@ -7,7 +7,7 @@
 
 <script>
 // import SidebarNav from '@/views/SidebarNav.vue'
-import SidebarNav from '@/components/SidebarNav'
+import SidebarNav from '@/components/Sidebar/SidebarNav'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -17,7 +17,6 @@ export default {
   },
   data () {
     return {
-      msg: 'MESSAGE COOL'
     }
   },
   computed: {
