@@ -19,5 +19,13 @@
     .block__add {
       display: block;
     }
+
+  }
+  .el-submenu__title, .el-menu-item {
+    &:hover {
+      i.add-icon {
+        display: block;
+      }
+    }
   }
 }

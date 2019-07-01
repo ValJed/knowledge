@@ -3,6 +3,7 @@
     v-if="block.pages.length"
     class="block block-submenu"
   >
+    <field-menu />
     <el-submenu
       :key="block.index"
       :index="`${block.index}`"
@@ -19,31 +20,28 @@
         <block-page :page="{...page, index, BlockIndex: block.index}" />
       </div>
     </el-submenu>
-    <i
-      class="el-icon-circle-plus-outline add-icon"
-    />
   </div>
   <div
     v-else
     class="block block-item"
   >
+    <field-menu />
     <el-menu-item
       class="item-in-block"
       :index="`${block.index}`"
     >
       {{ block.name }}
-      <i
-        class="el-icon-circle-plus-outline add-icon"
-      />
     </el-menu-item>
   </div>
 </template>
 <script>
 import BlockPage from '@/components/Sidebar/BlockPage'
+import FieldMenu from '@/components/Sidebar/FieldMenu'
 
 export default {
   components: {
-    BlockPage
+    BlockPage,
+    FieldMenu
   },
   props: {
     block: {

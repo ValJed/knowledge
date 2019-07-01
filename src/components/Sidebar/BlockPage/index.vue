@@ -3,6 +3,7 @@
     v-if="page.toto"
     class="block-page"
   >
+    <field-menu />
     <el-submenu
       class="item-in-page"
       :index="`${page.blockIndex}-${page.index}`"
@@ -17,12 +18,12 @@
     v-else
     class="block-page"
   >
+    <field-menu />
     <el-menu-item
       class="item-in-page"
       :index="`${page.blockIndex}-${page.index}`"
     >
-      {{ page.name }} toto
-      <i class="el-icon-circle-plus-outline add-icon" />
+      {{ page.name }}
     </el-menu-item>
   </div>
 </template>
@@ -41,4 +42,4 @@ export default {
   }
 }
 </script>
-<style src="./" scoped lang='scss'></style>
+<style src="./BlockPage.scss" scoped lang='scss'></style>

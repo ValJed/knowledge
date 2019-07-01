@@ -119,14 +119,22 @@ div {
     //   padding-left: 1rem!important;
     // }
   }
-  .add-icon {
-    display: none;
-    position: absolute;
-    color: #fff;
-    font-size: 1.3rem;
-    top: calc(1.5rem - 10px);
-    margin-right: 0;
-    right: -1rem;
+  .block {
+    .field-menu {
+      position: absolute;
+      right: -1.5rem;
+      top: .9rem;
+      i {
+        // display: none;
+        // position: absolute;
+        color: #fff;
+        font-size: 1.3rem;
+        // top: calc(1.5rem - 10px);
+        // margin-right: 0;
+        // right: -1rem;
+      }
+    }
+
   }
 }
 

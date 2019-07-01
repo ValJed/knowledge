@@ -1,5 +1,10 @@
 .block-page {
   .el-menu-item {
     padding-left: 2rem!important;
+      &:hover {
+        i.add-icon {
+          display: block;
+        }
+      }
   }
 }
