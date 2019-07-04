@@ -12,13 +12,17 @@
       <template slot="title">
         <span>{{ block.name }}</span>
       </template>
-      <div
+      <!-- <div
         v-for="(page, index) in block.pages"
         :key="index"
         class="block__pages"
-      >
-        <block-page :page="{...page, index, BlockIndex: block.index}" />
-      </div>
+      > -->
+      <block-page
+        v-for="(page, index) in block.pages"
+        :key="index"
+        :page="{...page, index, BlockIndex: block.index}"
+      />
+      <!-- </div> -->
     </el-submenu>
   </div>
   <div

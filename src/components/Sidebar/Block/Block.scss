@@ -8,18 +8,18 @@
   //   width: 80%;
   //   cursor: pointer;
   // }
-  &__add {
-    display: none;
-    position: absolute;
-    top: 0;
-    right: 0;
-    cursor: pointer;
-  }
   &:hover {
     .block__add {
       display: block;
     }
 
+  }
+  // .el-menu {
+  //   background: red;
+  // }
+  .item-in-block {
+    background: red;
+    padding-right: 1.5rem;
   }
   .el-submenu__title, .el-menu-item {
     &:hover {

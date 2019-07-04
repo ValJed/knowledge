@@ -1,28 +1,26 @@
 <template>
   <div class="sidebar-nav">
-    <el-menu
-      class="sidebar-nav__menu"
-      @open="handleOpen"
-      @close="handleClose"
+    <div
+      v-if="currentProject.blocks.length"
+      class="sidebar-nav__content"
     >
-      <div
-        v-if="currentProject.blocks.length"
-        class="sidebar-nav__content"
+      these are blocks :
+      <el-menu
+        class="sidebar-nav__blocks"
+        @open="handleOpen"
+        @close="handleClose"
       >
-        these are blocks :
-        <div class="sidebar-nav__blocks">
-          <block
-            v-for="(block, index) in currentProject.blocks"
-            :key="index"
-            :block="{...block, index}"
-          />
-        </div>
-      </div>
-      <add-block />
-      <!-- <div
+        <block
+          v-for="(block, index) in currentProject.blocks"
+          :key="index"
+          :block="{...block, index}"
+        />
+      </el-menu>
+    </div>
+    <add-block />
+    <!-- <div
         class="sidebar-nav__content"
       /> -->
-    </el-menu>
   </div>
 </template>
 

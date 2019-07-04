@@ -57,6 +57,9 @@ div {
 // Element override
 .el-menu {
   border-right: none;
+  // overflow: visible!important;
+  width: 100%;
+  // box-sizing: content-box;
   // .el-submenu,
   // .el-submenu.is-opened,
   // .el-menu-item {
@@ -68,6 +71,10 @@ div {
   // }
   .el-submenu, .el-submenu.is-opened {
     padding-left: 1rem;
+    margin-right: 0;
+    // i {
+    //   margin-right: 0;
+    // }
     &__title {
       color: #fff;
       height: 3rem;
