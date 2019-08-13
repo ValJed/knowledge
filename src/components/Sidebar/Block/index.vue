@@ -1,50 +1,34 @@
 <template>
-  <div
+  <li
     v-if="block.pages.length"
-    class="block block-submenu"
+    class="block"
   >
-    <field-menu />
-    <el-submenu
-      :key="block.index"
-      :index="`${block.index}`"
-      class="item-in-block"
+    <div
+      class="block-title"
+      @click="openMenu"
     >
-      <template slot="title">
-        <span>{{ block.name }}</span>
-      </template>
-      <!-- <div
-        v-for="(page, index) in block.pages"
-        :key="index"
-        class="block__pages"
-      > -->
-      <block-page
-        v-for="(page, index) in block.pages"
-        :key="index"
-        :page="{...page, index, BlockIndex: block.index}"
-      />
-      <!-- </div> -->
-    </el-submenu>
-  </div>
-  <div
+      {{ block.name }}
+    </div>
+    <block-submenu
+      :block="block"
+      :is-open="isOpen"
+    />
+  </li>
+  <li
     v-else
     class="block block-item"
   >
     <field-menu />
-    <el-menu-item
-      class="item-in-block"
-      :index="`${block.index}`"
-    >
-      {{ block.name }}
-    </el-menu-item>
-  </div>
+    {{ block.name }}
+  </li>
 </template>
 <script>
-import BlockPage from '@/components/Sidebar/BlockPage'
+import BlockSubmenu from '@/components/Sidebar/BlockSubmenu'
 import FieldMenu from '@/components/Sidebar/FieldMenu'
 
 export default {
   components: {
-    BlockPage,
+    BlockSubmenu,
     FieldMenu
   },
   props: {
@@ -54,9 +38,24 @@ export default {
     }
   },
   data () {
-    return {}
+    return {
+      isOpen: false
+    }
+  },
+  mounted () {
+    // this.submenuHeight
+    // const submenuElem = Object.entries(this.$el.childNodes)
+    //   .find((elem) => elem[1].className && elem[1].className.includes('block-submenu'))
+
+    // if (submenuElem) {
+    //   console.log('submenuElem[1].offsetHeight ===> ', submenuElem[1])
+    //   this.submenuHeight = submenuElem[1].offsetHeight
+    // }
   },
   methods: {
+    openMenu () {
+      this.isOpen = !this.isOpen
+    },
     showModal () {
       const params = {
         title: `Add a page inside ${this.block.name} block`,

@@ -8,8 +8,8 @@
     <el-col :span="24">
       <h3>{{ title }}</h3>
       <projects-item
-        v-for="project in projects"
-        :key="project._id"
+        v-for="(project, index) in projects"
+        :key="index"
         :project="project"
       />
       <add-project />

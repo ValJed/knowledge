@@ -1,31 +1,9 @@
 .block {
   position: relative;
-  // > span {
-  //   height: 1.2rem;
-  //   line-height: 1.2rem;
-  //   display: block;
-  //   background: #000;
-  //   width: 80%;
-  //   cursor: pointer;
-  // }
-  &:hover {
-    .block__add {
-      display: block;
-    }
-
-  }
-  // .el-menu {
-  //   background: red;
-  // }
-  .item-in-block {
-    background: red;
-    padding-right: 1.5rem;
-  }
-  .el-submenu__title, .el-menu-item {
-    &:hover {
-      i.add-icon {
-        display: block;
-      }
-    }
+  padding: .5rem;
+  overflow: hidden;
+  &-title {
+    padding-bottom: .3rem;
+    cursor: pointer;
   }
 }

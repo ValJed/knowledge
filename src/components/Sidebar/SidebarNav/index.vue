@@ -5,7 +5,7 @@
       class="sidebar-nav__content"
     >
       these are blocks :
-      <el-menu
+      <ul
         class="sidebar-nav__blocks"
         @open="handleOpen"
         @close="handleClose"
@@ -15,7 +15,7 @@
           :key="index"
           :block="{...block, index}"
         />
-      </el-menu>
+      </ul>
     </div>
     <add-block />
     <!-- <div
@@ -36,9 +36,6 @@ export default {
   },
   computed: {
     ...mapGetters(['currentProject'])
-  },
-  mounted () {
-    console.log('this.currentProject ===> ', this.currentProject.blocks)
   },
   methods: {
     handleOpen (key, keyPath) {
