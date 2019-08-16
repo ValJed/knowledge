@@ -37,6 +37,9 @@ export default {
   computed: {
     ...mapGetters(['currentProject'])
   },
+  mounted () {
+    console.log('this.currentProject ===> ', this.currentProject)
+  },
   methods: {
     handleOpen (key, keyPath) {
       console.log(key, keyPath)

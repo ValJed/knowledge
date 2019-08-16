@@ -1,9 +1,15 @@
 .block {
   position: relative;
   padding: .5rem;
-  overflow: hidden;
+  // overflow-y: hidden;
   &-title {
+    width: 100%;
     padding-bottom: .3rem;
     cursor: pointer;
+  }
+  &:hover {
+    .block-menu {
+      display: block;
+    }
   }
 }

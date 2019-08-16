@@ -18,18 +18,20 @@
     v-else
     class="block block-item"
   >
-    <field-menu />
-    {{ block.name }}
+    <div class="block-title">
+      {{ block.name }}
+      <block-menu />
+    </div>
   </li>
 </template>
 <script>
 import BlockSubmenu from '@/components/Sidebar/BlockSubmenu'
-import FieldMenu from '@/components/Sidebar/FieldMenu'
+import BlockMenu from '@/components/Sidebar/BlockMenu'
 
 export default {
   components: {
     BlockSubmenu,
-    FieldMenu
+    BlockMenu
   },
   props: {
     block: {
@@ -41,16 +43,6 @@ export default {
     return {
       isOpen: false
     }
-  },
-  mounted () {
-    // this.submenuHeight
-    // const submenuElem = Object.entries(this.$el.childNodes)
-    //   .find((elem) => elem[1].className && elem[1].className.includes('block-submenu'))
-
-    // if (submenuElem) {
-    //   console.log('submenuElem[1].offsetHeight ===> ', submenuElem[1])
-    //   this.submenuHeight = submenuElem[1].offsetHeight
-    // }
   },
   methods: {
     openMenu () {
