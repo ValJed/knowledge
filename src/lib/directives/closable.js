@@ -4,20 +4,18 @@ let handleOutsideClick
 export default {
   bind (el, binding, vnode) {
     handleOutsideClick = (e) => {
-      const { className, level } = binding.value
+      const { level, handler, excluded } = binding.value
 
       const elem = level === 'parent' ? el.parentNode
         : level === 'child' ? el.childNodes[0]
           : el
 
-      if (!elem.contains(e.target)) {
-        console.log('elem ===> ', elem)
-        console.log('e.target ===> ', e.target)
-        elem.classList.remove(className)
+      const isExcluded = excluded
+        .some((className) => e.target.classList.contains(className))
+
+      if (!elem.contains(e.target) && !isExcluded) {
+        vnode.context[handler]()
       }
-      // else {
-      //   elem.classList.add(className)
-      // }
     }
 
     document.addEventListener('click', handleOutsideClick)

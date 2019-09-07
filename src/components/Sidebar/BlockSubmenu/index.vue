@@ -37,11 +37,6 @@ export default {
       height: 0
     }
   },
-  computed: {
-    Height () {
-      return this.isOpen ? this.height : 0
-    }
-  },
   mounted () {
     const containerElem = Object.entries(this.$el.childNodes)
       .find((elem) => {

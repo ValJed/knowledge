@@ -1,9 +1,23 @@
 .block {
   position: relative;
   padding: .5rem;
-  overflow: hidden;
   &-title {
+    display: inline;
     padding-bottom: .3rem;
     cursor: pointer;
+  }
+  &-container {
+    overflow-y: hidden;
+    i {
+      transition: transform .2s linear;
+    }
+    .block-options {
+      display: none;
+    }
+    &:hover {
+      .block-options {
+        display: block;
+      }
+    }
   }
 }

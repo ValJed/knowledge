@@ -19,7 +19,6 @@
 
 <script>
 export default {
-  // :href="../../assets/images/icons/code.svg#code"
   props: {
     name: {
       default: '',

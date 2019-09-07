@@ -1,0 +1,33 @@
+.block-options {
+  &__btn {
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+    cursor: pointer;
+    i {
+      font-size: 1.3rem;
+    }
+  }
+  &-list {
+    position: absolute;
+    // display: none;
+    top: 2rem;
+    right: 0;
+    background: #fff;
+    color: #000;
+    border-radius: .2rem;
+    z-index: 1;
+    // &.open {
+    //   display: block;
+    // }
+    &__item {
+      border-radius: .2rem;
+      cursor: pointer;
+      font-size: .9rem;
+      padding: .3rem;
+      &:hover {
+        background: $color2;
+      }
+    }
+  }
+}

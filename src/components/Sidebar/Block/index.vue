@@ -3,16 +3,23 @@
     v-if="block.pages.length"
     class="block"
   >
-    <div
-      class="block-title"
-      @click="openMenu"
-    >
-      {{ block.name }}
+    <div class="block-container">
+      <div
+        class="block-title"
+        @click="openMenu"
+      >
+        <i
+          class="el-icon-arrow-down"
+          :style="{transform: `rotate(${isOpen ? 180 : 0}deg)`}"
+        />
+        {{ block.name }}
+      </div>
+      <block-submenu
+        :block="block"
+        :is-open="isOpen"
+      />
     </div>
-    <block-submenu
-      :block="block"
-      :is-open="isOpen"
-    />
+    <block-options :block="block" />
   </li>
   <li
     v-else
@@ -24,11 +31,13 @@
 </template>
 <script>
 import BlockSubmenu from '@/components/Sidebar/BlockSubmenu'
+import BlockOptions from '@/components/Sidebar/BlockOptions'
 import FieldMenu from '@/components/Sidebar/FieldMenu'
 
 export default {
   components: {
     BlockSubmenu,
+    BlockOptions,
     FieldMenu
   },
   props: {
