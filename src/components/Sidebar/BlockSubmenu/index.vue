@@ -38,6 +38,7 @@ export default {
     }
   },
   mounted () {
+    // Getting height of the block-submenu-container to manage dropdown
     const containerElem = Object.entries(this.$el.childNodes)
       .find((elem) => {
         return elem[1].className && elem[1].className.includes('block-submenu-container')

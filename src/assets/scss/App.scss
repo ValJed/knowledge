@@ -14,7 +14,7 @@ li {
   list-style: none;
 }
 
-div {
+div, ul, li, p {
   box-sizing: border-box;
 }
 
@@ -40,6 +40,7 @@ div {
     background: none;
   }
 }
+
 #nav {
   padding: 30px;
 }
@@ -103,19 +104,26 @@ div {
     padding-right: 0;
 
   }
-  .block {
-    .field-menu {
-      position: absolute;
-      right: -1.5rem;
-      top: .9rem;
-      i {
-        color: #fff;
-        font-size: 1.3rem;
 
-      }
-    }
+  // .block {
+  //   .field-menu {
+  //     position: absolute;
+  //     right: -1.5rem;
+  //     top: .9rem;
+  //     i {
+  //       color: #fff;
+  //       font-size: 1.3rem;
 
-  }
+  //     }
+  //   }
+  // }
+}
+
+.el-popover {
+  padding: 0;
+  min-width: 1rem;
+  border: none;
+  // border: solid 1px $color1;
 }
 
 // Global style for tiptap editor container
