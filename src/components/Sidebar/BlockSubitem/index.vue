@@ -5,11 +5,9 @@
 </template>
 
 <script>
-// import FieldMenu from '@/components/Sidebar/FieldMenu'
 
 export default {
   components: {
-    // FieldMenu
   },
   props: {
     page: {

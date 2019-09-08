@@ -12,6 +12,9 @@
         :page="page"
       />
     </ul>
+    <div class="test-toto">
+      toto
+    </div>
   </div>
 </template>
 
@@ -34,18 +37,30 @@ export default {
   },
   data () {
     return {
-      height: 0
+      itemHeight: 0
+    }
+  },
+  computed: {
+    height () {
+      return this.itemHeight * this.block.pages.length
     }
   },
   mounted () {
-    // Getting height of the block-submenu-container to manage dropdown
-    const containerElem = Object.entries(this.$el.childNodes)
-      .find((elem) => {
-        return elem[1].className && elem[1].className.includes('block-submenu-container')
-      })
+    this.getItemHeight()
+  },
+  methods: {
+    getItemHeight () {
+      const itemElem = Object.values(this.$el.childNodes)
+        .reduce((acc, container) => {
+          const item = container.childNodes.item(0)
+          return item instanceof Element && item.className.includes('block-subitem')
+            ? item
+            : acc
+        }, null)
 
-    if (containerElem) {
-      this.height = containerElem[1].offsetHeight
+      if (itemElem) {
+        this.itemHeight = itemElem.offsetHeight
+      }
     }
   }
 }

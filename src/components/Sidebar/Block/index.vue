@@ -27,20 +27,18 @@
   >
     <div class="block-title">
       {{ block.name }}
-      <block-menu />
     </div>
+    <block-options :block="block" />
   </li>
 </template>
 <script>
 import BlockSubmenu from '@/components/Sidebar/BlockSubmenu'
 import BlockOptions from '@/components/Sidebar/BlockOptions'
-import FieldMenu from '@/components/Sidebar/FieldMenu'
 
 export default {
   components: {
     BlockSubmenu,
-    BlockOptions,
-    FieldMenu
+    BlockOptions
   },
   props: {
     block: {

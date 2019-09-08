@@ -104,19 +104,6 @@ div, ul, li, p {
     padding-right: 0;
 
   }
-
-  // .block {
-  //   .field-menu {
-  //     position: absolute;
-  //     right: -1.5rem;
-  //     top: .9rem;
-  //     i {
-  //       color: #fff;
-  //       font-size: 1.3rem;
-
-  //     }
-  //   }
-  // }
 }
 
 .el-popover {
@@ -131,5 +118,35 @@ div, ul, li, p {
   padding-bottom: 1rem;
   &:focus {
     outline: none;
+  }
+}
+
+// Hide blocks menu icon
+.block {
+  .block-options {
+    .block-options__btn {
+      transition: opacity .2s linear;
+      opacity: 0;
+    }
+  }
+  &:hover {
+    .block-options__btn {
+      opacity: 1;
+    }
+  }
+}
+
+
+// Transitions
+.fade-enter-active, .fade-leave-active {
+  transition: all .3s;
+  .modal {
+    transition: all .3s;
+  }
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  .modal {
+    top: calc(50% - 23%);
   }
 }

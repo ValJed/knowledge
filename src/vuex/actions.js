@@ -56,17 +56,14 @@ export default {
 
     const res = await post('add-page', data)
 
-    const payload = {
-      blockId: data.blockId,
-      data: res.data
-    }
-    console.log('res.data ===> ', payload)
-
     if (res && res.status === 200) {
+      const payload = {
+        blockId: data.blockId,
+        data: res.data
+      }
+
       commit(types.ADD_PAGE, payload)
     }
-
-    console.log('getters.currentProject.block ===> ', getters.currentProject.blocks)
   }
 
   // toggleField ({ commit, getters, state }, field) {

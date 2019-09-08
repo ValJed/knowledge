@@ -8,24 +8,26 @@
     >
       <i class="el-icon-more" />
     </div>
-    <ul
-      v-show="openedOptions"
-      v-closable="{
-        className: 'open',
-        handler: 'closeOptions',
-        excluded:['block-options', 'el-icon-more']}"
-      class="block-options-list"
-    >
-      <li
-        class="block-options-list__item"
-        @click.stop="showModal"
+    <transition name="fade">
+      <ul
+        v-show="openedOptions"
+        v-closable="{
+          className: 'open',
+          handler: 'closeOptions',
+          excluded:['block-options', 'el-icon-more']}"
+        class="block-options-list"
       >
-        Add
-      </li>
-      <li class="block-options-list__item">
-        Delete
-      </li>
-    </ul>
+        <li
+          class="block-options-list__item"
+          @click.stop="showModal"
+        >
+          Add
+        </li>
+        <li class="block-options-list__item">
+          Delete
+        </li>
+      </ul>
+    </transition>
   </div>
 </template>
 
@@ -59,6 +61,7 @@ export default {
         }
       }
 
+      this.openedOptions = false
       this.$modal.show(params)
     }
   }
