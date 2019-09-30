@@ -3,30 +3,6 @@ import * as types from './mutation-types'
 import { post } from '../lib/network'
 
 export default {
-
-  async logUser ({ commit, getters, state }, data) {
-    try {
-      const res = await post('log-user', data)
-
-      if (res.status === 200) {
-        const date = new Date()
-        date.setDate(date.getDate() + 1)
-        document.cookie = `knowledge-token=${res.data.token}; expires=${date}.`
-
-        console.log('res.data.projects ===> ', res.data.projects)
-        commit(types.STORE_USER, res.data.user)
-        commit(types.STORE_PROJECTS, res.data.projects)
-        return true
-      } else if (res.status === 401) {
-        console.log('Unauthorized access')
-        return false
-      }
-    } catch (err) {
-      console.error('error ===> ', err)
-      return false
-    }
-  },
-
   async addProject ({ commit, getters, state }, projectName) {
     const { _id } = state.user
 
@@ -34,35 +10,10 @@ export default {
       _id,
       projectName
     }
-    const res = await post('create-project', data)
+    const res = await post('projects', data)
 
     if (res.status === 200) {
       commit(types.ADD_PROJECT, res.data)
-    }
-  },
-
-  async addBlock ({ commit, getters, state }, data) {
-    data._id = state.currentProjectId
-
-    const res = await post('add-block', data)
-
-    if (res && res.status === 200) {
-      commit(types.ADD_BLOCK, res.data)
-    }
-  },
-
-  async addPage ({ commit, getters, state }, data) {
-    data._id = state.currentProjectId
-
-    const res = await post('add-page', data)
-
-    if (res && res.status === 200) {
-      const payload = {
-        blockId: data.blockId,
-        data: res.data
-      }
-
-      commit(types.ADD_PAGE, payload)
     }
   }
 

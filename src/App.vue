@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import Banner from '@/components/Common/Banner'
-import Modal from '@/components/Common/Modal'
+import Banner from '@/modules/Common/components/Banner'
+import Modal from '@/modules/Common/components/Modal'
 // import gql from 'graphql-tag'
 // import { dev } from '../config'
 

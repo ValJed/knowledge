@@ -31,6 +31,7 @@
     <block-options :block="block" />
   </li>
 </template>
+
 <script>
 import BlockSubmenu from '@/components/Sidebar/BlockSubmenu'
 import BlockOptions from '@/components/Sidebar/BlockOptions'
