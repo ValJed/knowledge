@@ -1,4 +1,7 @@
 import { types } from './AuthMutations'
+import { post } from '@/lib/network'
+
+const { STORE_USER, STORE_PROJECTS } = types
 
 export default {
   async logUser ({ commit, getters, state }, data) {
@@ -10,8 +13,8 @@ export default {
         date.setDate(date.getDate() + 1)
         document.cookie = `knowledge-token=${res.data.token}; expires=${date}.`
 
-        commit(types.STORE_USER, res.data.user)
-        commit(types.STORE_PROJECTS, res.data.projects)
+        commit(STORE_USER, res.data.user)
+        commit(STORE_PROJECTS, res.data.projects)
         return true
       } else if (res.status === 401) {
         console.log('Unauthorized access')

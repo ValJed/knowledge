@@ -2,7 +2,13 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import VuexPersist from 'vuex-persist'
 import buildContext from './lib/contextBuilder'
-import { actions, getters, mutations } from './vuex'
+import { actions, getters, mutations } from '@/modules'
+
+console.log('actions ===> ', actions)
+
+console.log('getters ===> ', getters)
+
+console.log('mutations ===> ', mutations)
 
 Vue.use(Vuex)
 

@@ -1,3 +1,8 @@
+import { post } from '@/lib/network'
+import { types } from './SidebarMutations'
+
+const { ADD_BLOCK, ADD_PAGE } = types
+
 export default {
   async addBlock ({ commit, getters, state }, data) {
     data._id = state.currentProjectId
@@ -5,7 +10,7 @@ export default {
     const res = await post('blocks', data)
 
     if (res && res.status === 200) {
-      commit(types.ADD_BLOCK, res.data)
+      commit(ADD_BLOCK, res.data)
     }
   },
 
@@ -20,7 +25,7 @@ export default {
         data: res.data
       }
 
-      commit(types.ADD_PAGE, payload)
+      commit(ADD_PAGE, payload)
     }
   }
 }
