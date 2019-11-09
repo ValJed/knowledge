@@ -1,6 +1,0 @@
-export const STORE_USER = 'STORE_USER'
-export const STORE_PROJECTS = 'STORE_PROJECTS'
-export const ADD_PROJECT = 'ADD_PROJECT'
-export const SET_CURRENT_PROJECT_ID = 'SET_CURRENT_PROJECT_ID'
-export const ADD_BLOCK = 'ADD_BLOCK'
-export const ADD_PAGE = 'ADD_PAGE'
