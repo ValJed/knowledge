@@ -7,7 +7,7 @@
 
 <script>
 // import SidebarNav from '@/views/SidebarNav.vue'
-import SidebarNav from '@/components/Sidebar/SidebarNav'
+import SidebarNav from '@/modules/Sidebar/components/SidebarNav'
 import { mapGetters } from 'vuex'
 
 export default {

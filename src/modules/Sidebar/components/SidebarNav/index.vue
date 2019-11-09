@@ -26,8 +26,8 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import AddBlock from '@/components/Sidebar/AddBlock'
-import Block from '@/components/Sidebar/Block'
+import AddBlock from '@/modules/Sidebar/components/AddBlock'
+import Block from '@/modules/Sidebar/components/Block'
 
 export default {
   components: {

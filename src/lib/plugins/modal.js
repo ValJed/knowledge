@@ -1,4 +1,4 @@
-import Modal from '../../components/Common/Modal'
+import Modal from '../../modules/Common/components/Modal'
 
 const modal = {
   install (Vue, options) {

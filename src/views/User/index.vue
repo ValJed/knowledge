@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import ProjectsList from '@/components/Projects/ProjectsList'
+import ProjectsList from '@/modules/Projects/components/ProjectsList'
 import {
   // mapActions,
   mapState

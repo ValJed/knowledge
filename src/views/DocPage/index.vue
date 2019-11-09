@@ -8,8 +8,8 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
-import EditorBlock from '@/components/Page/EditorBlock'
-// import ProjectsList from '@/components/Projects/ProjectsList'
+import EditorBlock from '@/modules/Page/components/EditorBlock'
+// import ProjectsList from '@/modules/Projects/ProjectsList'
 
 export default {
   name: 'DocPage',

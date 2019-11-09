@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import BlockSubitem from '@/components/Sidebar/BlockSubitem'
+import BlockSubitem from '@/modules/Sidebar/components/BlockSubitem'
 
 export default {
   components: {

@@ -18,8 +18,8 @@
 </template>
 
 <script>
-import ProjectsItem from '@/components/Projects/ProjectsItem'
-import AddProject from '@/components/Projects/AddProject'
+import ProjectsItem from '@/modules/Projects/components/ProjectsItem'
+import AddProject from '@/modules/Projects/components/AddProject'
 
 import {
   mapState
