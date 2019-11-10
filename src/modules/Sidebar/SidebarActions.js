@@ -27,5 +27,9 @@ export default {
 
       commit(ADD_PAGE, payload)
     }
+  },
+
+  async deleteBlock ({ commit, getters, state }, data) {
+
   }
 }

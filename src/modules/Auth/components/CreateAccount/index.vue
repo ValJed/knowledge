@@ -149,7 +149,7 @@ export default {
     async checkMailExist (rule, value, cb) {
       const params = { email: value }
 
-      const res = await get('get-user', params)
+      const res = await get('api/users', params)
 
       if (res.data === 'exists') {
         cb(new Error('An account is already attached to this email address'))

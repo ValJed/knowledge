@@ -20,6 +20,7 @@ export const get = async (route, params) => {
       `Error during get request on API:
       ${err}`
     )
+    return err.response
   }
 }
 
@@ -41,6 +42,7 @@ export const put = async (route, data) => {
       `Error trying to put request on API:
       ${err}`
     )
+    return err.response
   }
 }
 
@@ -62,6 +64,7 @@ export const post = async (route, data = {}) => {
       `Error during post request on API:
       ${err}`
     )
+    return err.response
   }
 }
 

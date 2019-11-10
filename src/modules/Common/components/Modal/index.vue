@@ -65,7 +65,7 @@ export default {
   },
 
   methods: {
-    ...mapActions(['addPage', 'addBlock']),
+    ...mapActions(['addPage', 'addBlock', 'deleteBlock']),
     show (params) {
       this.visible = true
       this.title = params.title

@@ -19,11 +19,14 @@
       >
         <li
           class="block-options-list__item"
-          @click.stop="showModal"
+          @click.stop="showModal('add')"
         >
           Add
         </li>
-        <li class="block-options-list__item">
+        <li
+          class="block-options-list__item"
+          @click.stop="showModal('delete')"
+        >
           Delete
         </li>
       </ul>
@@ -52,14 +55,21 @@ export default {
     closeOptions () {
       this.openedOptions = false
     },
-    showModal () {
-      const params = {
-        title: `Add a page inside ${this.block.name} block`,
-        actionToTrigger: 'addPage',
-        actionParams: {
-          blockId: this.block._id
+    showModal (type) {
+      const params = type === 'add'
+        ? {
+          title: `Add a page inside ${this.block.name} block`,
+          actionToTrigger: 'addPage',
+          actionParams: {
+            blockId: this.block._id
+          }
+        } : {
+          title: `Do you want to delete the block ${this.block.name} block`,
+          actionToTrigger: 'deleteBlock',
+          actionParams: {
+            blockId: this.block._id
+          }
         }
-      }
 
       this.openedOptions = false
       this.$modal.show(params)
@@ -68,4 +78,4 @@ export default {
 }
 </script>
 
-<style src="./BlockOptions.scss" scoped lang='scss'></style>
+<style src="./BlockOptions.scss" scoped lang="scss"></style>

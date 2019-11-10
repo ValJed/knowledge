@@ -6,7 +6,7 @@ const { STORE_USER, STORE_PROJECTS } = types
 export default {
   async logUser ({ commit, getters, state }, data) {
     try {
-      const res = await post('users/log', data)
+      const res = await post('api/login', data)
 
       if (res.status === 200) {
         const date = new Date()
