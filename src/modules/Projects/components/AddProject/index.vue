@@ -30,7 +30,7 @@
           <el-form-item>
             <el-button
               type="primary"
-              @click="addProject(form.name)"
+              @click.prevent="addProject(form.name)"
             >
               Create project
             </el-button>
@@ -64,9 +64,6 @@ export default {
   },
   methods: {
     ...mapActions(['addProject'])
-    // async createProject (form) {
-    //   await this.addProject(form)
-    // }
   }
 }
 </script>

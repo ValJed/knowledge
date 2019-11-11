@@ -11,10 +11,11 @@ export default {
       _id,
       projectName
     }
-    const res = await post('projects', data)
 
-    if (res.status === 200) {
-      commit(ADD_PROJECT, res.data)
+    const res = await post('api/projects', data)
+
+    if (res.data.success) {
+      commit(ADD_PROJECT, res.data.project)
     }
   }
 }

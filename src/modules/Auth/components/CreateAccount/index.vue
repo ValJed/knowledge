@@ -12,7 +12,7 @@
         prop="pseudo"
       >
         <el-input
-          v-model="form.pseudo"
+          v-model="form.username"
           type="name"
           placeholder="Pseudo"
         />
@@ -64,7 +64,7 @@
 </template>
 
 <script>
-import { put, get } from '@/lib/network'
+import { post, get } from '@/lib/network'
 
 export default {
   name: 'Home',
@@ -72,19 +72,19 @@ export default {
   data () {
     return {
       form: {
-        pseudo: 'val',
-        email: 'test@test.com',
-        password: 'tototo',
-        checkPassword: 'tototo'
+        username: 'Jed',
+        email: 'jed@test.com',
+        password: 'tututu',
+        checkPassword: 'tututu'
       },
       error: {
         email: undefined
       },
       formRules: {
-        pseudo: [
+        username: [
           {
             required: true,
-            message: 'Please choose a pseudo',
+            message: 'Please choose a username',
             trigger: 'blur'
           }
         ],
@@ -151,7 +151,7 @@ export default {
 
       const res = await get('api/users', params)
 
-      if (res.data === 'exists') {
+      if (res.data.success) {
         cb(new Error('An account is already attached to this email address'))
       } else {
         cb()
@@ -166,7 +166,7 @@ export default {
       this.$refs['form'].validate(async (valid) => {
         if (valid) {
           try {
-            const res = await put('create-account', form)
+            const res = await post('api/users', form)
 
             console.log('res   ===> ', res)
             if (res.status === 201) {

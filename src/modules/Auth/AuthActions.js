@@ -8,7 +8,7 @@ export default {
     try {
       const res = await post('api/login', data)
 
-      if (res.status === 200) {
+      if (res.data.success) {
         const date = new Date()
         date.setDate(date.getDate() + 1)
         document.cookie = `knowledge-token=${res.data.token}; expires=${date}.`

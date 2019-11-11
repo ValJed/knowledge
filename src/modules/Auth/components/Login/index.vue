@@ -49,8 +49,8 @@ export default {
   data () {
     return {
       form: {
-        email: 'test@test.com',
-        password: 'tototo'
+        email: 'jed@test.com',
+        password: 'tututu'
       },
       formRules: {
         email: [
@@ -90,8 +90,9 @@ export default {
             password: form.password
           }
 
-          const logged = await this.logUser(credentials)
-          if (logged) {
+          const isLogged = await this.logUser(credentials)
+
+          if (isLogged) {
             this.$router.push({ path: `/${this.user._id}` })
           }
         }
