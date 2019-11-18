@@ -13,10 +13,11 @@
         <h3>{{ title }}</h3>
         <el-form
           rel="form"
-          @submit.native.prevent="actionToTrigger({ ...form, ...actionParams })"
+          @submit.native.prevent="submitForm({ ...form, ...actionParams })"
         >
           <el-form-item>
             <el-input
+              v-show="showInput"
               ref="input"
               v-model="form.name"
               size="medium"
@@ -26,9 +27,9 @@
           <el-form-item>
             <el-button
               type="primary"
-              @click="actionToTrigger({ ...form, ...actionParams })"
+              @click="submitForm({ ...form, ...actionParams })"
             >
-              Submit
+              Ok
             </el-button>
           </el-form-item>
         </el-form>
@@ -46,6 +47,7 @@ export default {
   data () {
     return {
       visible: false,
+      showInput: true,
       title: '',
       content: '',
       actionToTrigger: '',
@@ -65,25 +67,32 @@ export default {
   },
 
   methods: {
-    ...mapActions(['addPage', 'addBlock', 'deleteBlock']),
+    ...mapActions(['addBlock', 'deleteBlock', 'addPage']),
     show (params) {
       this.visible = true
       this.title = params.title
       this.actionParams = params.actionParams || {}
+      this.showInput = params.actionToTrigger !== 'deleteBlock'
 
       if (this[params.actionToTrigger]) {
         this.actionToTrigger = this[params.actionToTrigger]
       } else {
-        console.log(`No action difined in the modal for ${params.actionToTrigger}`)
+        console.log(`No action defined in the modal for ${params.actionToTrigger}`)
       }
 
-      this.$nextTick(() => {
-        this.$refs.input.focus()
-      })
+      if (this.showInput) {
+        this.$nextTick(() => {
+          this.$refs.input.focus()
+        })
+      }
     },
     close () {
       this.visible = false
       this.form.name = ''
+    },
+    submitForm (params) {
+      this.actionToTrigger(params)
+      this.close()
     }
   }
 }

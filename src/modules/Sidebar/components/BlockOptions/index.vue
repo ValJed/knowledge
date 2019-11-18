@@ -64,7 +64,7 @@ export default {
             blockId: this.block._id
           }
         } : {
-          title: `Do you want to delete the block ${this.block.name} block`,
+          title: `Do you want to delete the ${this.block.name} block`,
           actionToTrigger: 'deleteBlock',
           actionParams: {
             blockId: this.block._id

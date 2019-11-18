@@ -1,18 +1,30 @@
 <template>
   <el-col :span="8">
-    <div class="item-container">
-      <h3>{{ project.name }}</h3>
-      <div class="item-content">
-        <img src="https://fakeimg.pl/300x150/">
-        <p>{{ project.description }}</p>
-        <el-button
-          type="primary"
-          @click="accessProject()"
-        >
-          Access Project
-        </el-button>
+    <el-card
+      class="card"
+      :body-style="{ padding: '0px' }"
+    >
+      <!-- <img
+        src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
+        class="image"
+      > -->
+      <img
+        class="image"
+        src="https://fakeimg.pl/400x150/"
+      >
+      <div style="padding: 14px;">
+        <h3>{{ project.name }}</h3>
+        <div class="bottom clearfix">
+          <el-button
+            type="text"
+            class="button"
+            @click="accessProject()"
+          >
+            Access Project
+          </el-button>
+        </div>
       </div>
-    </div>
+    </el-card>
   </el-col>
 </template>
 

@@ -1,23 +1,10 @@
-.item-container {
-  min-height: 16rem;
-  background: grey;
-  padding: 1rem;
-  // border: .2rem black solid;
-  &:after {
-    content: '';
-    // background-color: $--color-primary;
-    background: $color1;
+.card {
+  margin: 1.5rem 1rem;
+  h3 {
+    margin: 0.5rem 0;
+  }
 
-  }
-  &:hover {
-    cursor: pointer;
-  }
-  .item-content {
-    text-align: right;
-    margin: 0 auto;
-    p {
-      margin-left: 1rem;
-      text-align: left;
-    }
-  }
+  // &:hover {
+  //   cursor: pointer;
+  // }
 }

@@ -2,7 +2,7 @@
 import { apiConfig } from './config.js'
 import axios from 'axios'
 
-export const get = async (route, params) => {
+const get = async (route, params) => {
   const token = getToken()
   const headers = {
     ...token ? { 'Authorization': `Bearer ${token}` } : {}
@@ -24,7 +24,7 @@ export const get = async (route, params) => {
   }
 }
 
-export const put = async (route, data) => {
+const put = async (route, data) => {
   const token = getToken()
   const headers = {
     ...token ? { 'Authorization': `Bearer ${token}` } : {}
@@ -46,7 +46,7 @@ export const put = async (route, data) => {
   }
 }
 
-export const post = async (route, data = {}) => {
+const post = async (route, data = {}) => {
   const token = getToken()
   const headers = {
     ...token ? { 'Authorization': `Bearer ${token}` } : {}
@@ -68,6 +68,28 @@ export const post = async (route, data = {}) => {
   }
 }
 
+const del = async (route, data) => {
+  const token = getToken()
+  const headers = {
+    ...token ? { 'Authorization': `Bearer ${token}` } : {}
+  }
+
+  try {
+    return await axios({
+      method: 'delete',
+      url: `${apiConfig.url}/${route}`,
+      headers,
+      data
+    })
+  } catch (err) {
+    console.error(
+      `Error trying to put request on API:
+      ${err}`
+    )
+    return err.response
+  }
+}
+
 const getToken = () => {
   const cookies = document.cookie.split(';')
 
@@ -75,4 +97,11 @@ const getToken = () => {
     .find((token) => token.split('=')[0].trim() === 'knowledge-token')
 
   return token ? token.split('=').splice(1).join('=') : ''
+}
+
+export {
+  get,
+  post,
+  put,
+  del
 }

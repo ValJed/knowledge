@@ -33,7 +33,7 @@ export default {
   },
   data () {
     return {
-      title: 'MY Project list'
+      title: 'My Projects list'
     }
   },
   // props: {
