@@ -1,3 +1,15 @@
 .block-subitem {
   padding: .5rem;
+
+  &:hover {
+    .icon {
+      transform: translateX(0) rotate(45deg);
+    }
+  }
+}
+.icon {
+  float: right;
+  cursor: pointer;
+  transform: translateX(30px) rotate(45deg);
+  transition: transform .2s linear;
 }

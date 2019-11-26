@@ -2,7 +2,8 @@
 export const types = {
   ADD_BLOCK: 'ADD_BLOCK',
   ADD_PAGE: 'ADD_PAGE',
-  DELETE_BLOCK: 'DELETE_BLOCK'
+  DELETE_BLOCK: 'DELETE_BLOCK',
+  DELETE_PAGE: 'DELETE_PAGE'
 }
 
 export default {
@@ -22,5 +23,9 @@ export default {
     return state.projects
       .find((project) => project._id === state.currentProjectId).blocks
       .splice(index, 1)
+  },
+
+  [types.DELETE_PAGE]: (state, { projectId, blockId, pageId }) => {
+
   }
 }

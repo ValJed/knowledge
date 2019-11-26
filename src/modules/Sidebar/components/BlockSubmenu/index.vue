@@ -10,6 +10,7 @@
         v-for="page in block.pages"
         :key="page.index"
         :page="page"
+        :blockid="block._id"
       />
     </ul>
     <div class="test-toto">

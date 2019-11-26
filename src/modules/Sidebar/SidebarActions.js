@@ -1,7 +1,7 @@
 import { post, del } from '@/lib/network'
 import { types } from './SidebarMutations'
 
-const { ADD_BLOCK, ADD_PAGE, DELETE_BLOCK } = types
+const { ADD_BLOCK, ADD_PAGE, DELETE_BLOCK, DELETE_PAGE } = types
 
 export default {
   async addBlock ({ commit, getters, state }, data) {
@@ -40,13 +40,18 @@ export default {
         data: res.data.page
       }
 
-      console.log('payload ===> ', payload)
-
       commit(ADD_PAGE, payload)
     }
   },
 
-  async deletePage ({commit, getters, state}, data) {
-    console.log('data ===> ', data)
+  async deletePage ({ commit, getters, state }, data) {
+    data._id = state.currentProjectId
+
+    const res = await del('api/blocks/pages', data)
+
+    if (res.data.success) {
+      commit(DELETE_PAGE, data)
+    }
+    console.log('res ===> ', res)
   }
 }
