@@ -13,8 +13,16 @@ export default {
         date.setDate(date.getDate() + 1)
         document.cookie = `knowledge-token=${res.data.token}; expires=${date}.`
 
+        // Reducing projects in unique object with ids as keys
+        const projects = res.data.projects.reduce((projects, project) => {
+          return {
+            ...projects,
+            [project._id]: project
+          }
+        }, {})
+
         commit(STORE_USER, res.data.user)
-        commit(STORE_PROJECTS, res.data.projects)
+        commit(STORE_PROJECTS, projects)
         return true
       } else if (res.status === 401) {
         console.log('Unauthorized access')

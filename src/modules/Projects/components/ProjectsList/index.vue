@@ -6,9 +6,11 @@
     class="projects-container"
   >
     <el-col :span="24">
-      <h3>{{ title }}</h3>
+      <h3>
+        {{ title }}
+      </h3>
       <projects-item
-        v-for="(project, index) in projects"
+        v-for="(project, index) in getProjects"
         :key="index"
         :project="project"
       />
@@ -22,8 +24,8 @@ import ProjectsItem from '@/modules/Projects/components/ProjectsItem'
 import AddProject from '@/modules/Projects/components/AddProject'
 
 import {
-  mapState
-  // mapActions
+  mapState,
+  mapGetters
 } from 'vuex'
 
 export default {
@@ -33,20 +35,13 @@ export default {
   },
   data () {
     return {
-      title: 'My Projects list'
+      title: 'My Projects list',
+      projectsViews: []
     }
   },
-  // props: {
-
-  // },
   computed: {
-    ...mapState(['user', 'projects'])
-  },
-  mounted () {
-    // this.getProjects(this.user._id)
-  },
-  methods: {
-    // ...mapActions(['getProjects'])
+    ...mapState(['user']),
+    ...mapGetters(['getProjects'])
   }
 }
 </script>

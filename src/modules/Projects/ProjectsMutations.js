@@ -4,6 +4,6 @@ export const types = {
 }
 
 export default {
-  [types.ADD_PROJECT]: (state, payload) => (state.projects.push(payload)),
+  [types.ADD_PROJECT]: (state, payload) => (state.projects = { ...state.projects, [payload._id]: payload }),
   [types.SET_CURRENT_PROJECT_ID]: (state, payload) => (state.currentProjectId = payload)
 }

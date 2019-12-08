@@ -1,4 +1,4 @@
 export default {
-  currentProject: (state) => state.projects
-    .find((project) => project._id === state.currentProjectId)
+  currentProject: (state) => state.projects[state.currentProjectId],
+  getProjects: (state) => Object.values(state.projects)
 }

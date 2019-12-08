@@ -7,8 +7,7 @@ export const types = {
 }
 
 export default {
-  [types.ADD_BLOCK]: (state, payload) => state.projects
-    .find((project) => project._id === state.currentProjectId).blocks.push(payload),
+  [types.ADD_BLOCK]: (state, block) => state.projects[state.currentProjectId].blocks.push(block),
 
   [types.ADD_PAGE]: (state, payload) => state.projects
     .find((project) => project._id === state.currentProjectId).blocks // Getting current project blocks
@@ -23,9 +22,11 @@ export default {
     return state.projects
       .find((project) => project._id === state.currentProjectId).blocks
       .splice(index, 1)
-  },
-
-  [types.DELETE_PAGE]: (state, { projectId, blockId, pageId }) => {
-
   }
+
+  // [types.DELETE_PAGE]: (state, { projectId, blockId, pageId }) => {
+  //   const index = state.projects
+  //     .find((project) => project._id === state.currentProjectId).blocks
+  //     .find((page) => block._id)
+  // }
 }
