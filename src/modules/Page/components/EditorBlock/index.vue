@@ -174,6 +174,7 @@
 </template>
 
 <script>
+
 // Import the editor
 import Icon from '@/modules/Common/components/Icon'
 import { Editor, EditorContent, EditorMenuBar } from 'tiptap'

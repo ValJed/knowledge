@@ -1,7 +1,7 @@
 import { types } from './ProjectsMutations'
-import { post } from '@/lib/network'
+import { post, del } from '@/lib/network'
 
-const { ADD_PROJECT } = types
+const { ADD_PROJECT, DELETE_PROJECT } = types
 
 export default {
   async addProject ({ commit, getters, state }, projectName) {
@@ -16,6 +16,21 @@ export default {
 
     if (res.data.success) {
       commit(ADD_PROJECT, res.data.project)
+    }
+  },
+
+  async deleteProject ({ commit, getters, state }, projectId) {
+    const data = {
+      projectId,
+      userId: state.user._id
+    }
+
+    const res = await del('api/projects', data)
+
+    console.log('res ===> ', res)
+
+    if (res.data.success) {
+      // commit(DELETE_PROJECT, data.projectId)
     }
   }
 }

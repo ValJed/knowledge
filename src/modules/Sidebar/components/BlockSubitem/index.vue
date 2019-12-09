@@ -7,7 +7,7 @@
       name="cross"
       :size="1"
       color="#fff"
-      @click.native="removePage(page)"
+      @click.native="removePage()"
     />
   </li>
 </template>
@@ -40,11 +40,7 @@ export default {
         confirmButtonText: 'OK'
       }).then(async (value) => {
         if (value === 'confirm') {
-          const data = {
-            pageId: this.page._id,
-            blockId: this.blockid
-          }
-          const res = await this.deletePage(data)
+          const res = await this.deletePage(this.project._id)
 
           console.log('res ===> ', res)
           this.$notify({

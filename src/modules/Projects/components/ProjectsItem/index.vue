@@ -12,9 +12,9 @@
         class="image"
         src="https://fakeimg.pl/400x150/"
       >
-      <div style="padding: 14px;">
+      <div class="card-infos">
         <h3>{{ project.name }}</h3>
-        <div class="bottom clearfix">
+        <div>
           <el-button
             type="text"
             class="button"
@@ -23,17 +23,27 @@
             Access Project
           </el-button>
         </div>
+        <div class="delete-project">
+          <icon
+            name="trash"
+            :size="1.2"
+            color="#000"
+            @click.native="deleteProject"
+          />
+        </div>
       </div>
     </el-card>
   </el-col>
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapMutations, mapActions } from 'vuex'
+import Icon from '@/modules/Common/components/Icon'
 
 export default {
   name: 'ProjectsItem',
   components: {
+    Icon
   },
   // data () {
   //   return {
@@ -50,6 +60,7 @@ export default {
     ...mapState(['user'])
   },
   methods: {
+    ...mapActions(['deleteProject']),
     ...mapMutations({
       setCurrentProjectId: 'SET_CURRENT_PROJECT_ID'
     }),
@@ -58,6 +69,27 @@ export default {
 
       this.setCurrentProjectId(this.project._id)
       this.$router.push({ path: `/${this.user._id}/${projectSlug}` })
+    },
+    deleteProject () {
+      this.$alert('Voulez-vous supprimer ce project ?', this.project.name, {
+        confirmButtonText: 'OK'
+      }).then(async (value) => {
+        console.log('value ===> ', value)
+        if (value === 'confirm') {
+          const data = {
+            projectId: this.project._id,
+            userId: this.user._id
+          }
+          const res = await this.deleteProject(data)
+
+          console.log('res ===> ', res)
+          // this.$notify({
+          //   type: 'success',
+          //   message: `Deleted`
+          // })
+        }
+      })
+      // .catch(() => {})
     }
   }
 }

@@ -7,12 +7,27 @@ export const types = {
 }
 
 export default {
-  [types.ADD_BLOCK]: (state, block) => state.projects[state.currentProjectId].blocks.push(block),
+  [types.ADD_BLOCK]: (state, block) => {
+    const currentProject = state.projects[state.currentProjectId]
 
-  [types.ADD_PAGE]: (state, payload) => state.projects
-    .find((project) => project._id === state.currentProjectId).blocks // Getting current project blocks
-    .find((block) => block._id === payload.blockId).pages // Getting current block pages
-    .push(payload.data),
+    currentProject.blocks = {
+      ...currentProject.blocks,
+      [block._id]: block
+    }
+  },
+
+  [types.ADD_PAGE]: (state, payload) => {
+    const currentProjectBlock = state.projects[state.currentProjectId].blocks[payload.blockID]
+
+    currentProjectBlock.pages = {
+      ...currentProjectBlock.pages,
+      [payload.data._id]: payload
+    }
+  },
+
+  // .find((project) => project._id === state.currentProjectId).blocks // Getting current project blocks
+  // .find((block) => block._id === payload.blockId).pages // Getting current block pages
+  // .push(payload.data),
 
   [types.DELETE_BLOCK]: (state, blockId) => {
     const index = state.projects
