@@ -27,10 +27,12 @@ export default {
 
     const res = await del('api/projects', data)
 
-    console.log('res ===> ', res)
-
     if (res.data.success) {
-      // commit(DELETE_PROJECT, data.projectId)
+      commit(DELETE_PROJECT, data.projectId)
+
+      return {
+        success: true
+      }
     }
   }
 }

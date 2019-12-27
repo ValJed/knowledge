@@ -7,5 +7,10 @@ export const types = {
 export default {
   [types.ADD_PROJECT]: (state, payload) => (state.projects = { ...state.projects, [payload._id]: payload }),
   [types.SET_CURRENT_PROJECT_ID]: (state, payload) => (state.currentProjectId = payload),
-  [types.DELETE_PROJECT]: (state, projectId) => (delete state.projects[projectId])
+  [types.DELETE_PROJECT]: (state, projectId) => {
+    const newProjects = { ...state.projects }
+    delete newProjects[projectId]
+
+    state.projects = newProjects
+  }
 }

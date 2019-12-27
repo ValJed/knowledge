@@ -28,7 +28,7 @@
             name="trash"
             :size="1.2"
             color="#000"
-            @click.native="deleteProject"
+            @click.native="removeProject"
           />
         </div>
       </div>
@@ -70,26 +70,23 @@ export default {
       this.setCurrentProjectId(this.project._id)
       this.$router.push({ path: `/${this.user._id}/${projectSlug}` })
     },
-    deleteProject () {
+    async removeProject () {
       this.$alert('Voulez-vous supprimer ce project ?', this.project.name, {
         confirmButtonText: 'OK'
       }).then(async (value) => {
-        console.log('value ===> ', value)
         if (value === 'confirm') {
-          const data = {
-            projectId: this.project._id,
-            userId: this.user._id
-          }
-          const res = await this.deleteProject(data)
+          const res = await this.deleteProject(this.project._id)
 
-          console.log('res ===> ', res)
-          // this.$notify({
-          //   type: 'success',
-          //   message: `Deleted`
-          // })
+          if (res.success) {
+            this.$notify({
+              type: 'success',
+              message: `Project ${this.project.name} has been deleted`
+            })
+          }
         }
+      }).catch((err) => {
+        console.error('err ===> ', err)
       })
-      // .catch(() => {})
     }
   }
 }
