@@ -52,6 +52,9 @@ export default {
       isOpen: false
     }
   },
+  mounted () {
+    console.log('this.block ===> ', this.block)
+  },
   methods: {
     openMenu () {
       this.isOpen = !this.isOpen

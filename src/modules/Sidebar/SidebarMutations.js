@@ -10,33 +10,53 @@ export default {
   [types.ADD_BLOCK]: (state, block) => {
     const currentProject = state.projects[state.currentProjectId]
 
-    currentProject.blocks = {
-      ...currentProject.blocks,
-      [block._id]: block
+    state.projects = {
+      ...state.projects,
+      [currentProject._id]: {
+        ...currentProject,
+        blocks: {
+          ...currentProject.blocks,
+          [block._id]: block
+        }
+      }
     }
   },
 
-  [types.ADD_PAGE]: (state, payload) => {
-    const currentProjectBlock = state.projects[state.currentProjectId].blocks[payload.blockID]
+  [types.ADD_PAGE]: (state, { blockId, data }) => {
+    const currentProject = state.projects[state.currentProjectId]
 
-    currentProjectBlock.pages = {
-      ...currentProjectBlock.pages,
-      [payload.data._id]: payload
+    state.projects = {
+      ...state.projects,
+      [currentProject._id]: {
+        ...currentProject,
+        blocks: {
+          ...currentProject.blocks,
+          [blockId]: {
+            ...currentProject.blocks[blockId],
+            pages: [
+              ...currentProject.blocks[blockId].pages,
+              data
+            ]
+          }
+        }
+      }
     }
   },
-
-  // .find((project) => project._id === state.currentProjectId).blocks // Getting current project blocks
-  // .find((block) => block._id === payload.blockId).pages // Getting current block pages
-  // .push(payload.data),
 
   [types.DELETE_BLOCK]: (state, blockId) => {
-    const index = state.projects
-      .find((project) => project._id === state.currentProjectId).blocks
-      .findIndex((block) => block.id === blockId)
+    const currentProject = state.projects[state.currentProjectId]
 
-    return state.projects
-      .find((project) => project._id === state.currentProjectId).blocks
-      .splice(index, 1)
+    const newBlocks = { ...currentProject.blocks }
+
+    delete newBlocks[blockId]
+
+    state.projects = {
+      ...state.projects,
+      [currentProject._id]: {
+        ...currentProject,
+        blocks: newBlocks
+      }
+    }
   }
 
   // [types.DELETE_PAGE]: (state, { projectId, blockId, pageId }) => {

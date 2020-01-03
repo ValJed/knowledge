@@ -13,9 +13,6 @@
         :blockid="block._id"
       />
     </ul>
-    <div class="test-toto">
-      toto
-    </div>
   </div>
 </template>
 

@@ -77,12 +77,10 @@ export default {
         if (value === 'confirm') {
           const res = await this.deleteProject(this.project._id)
 
-          if (res.success) {
-            this.$notify({
-              type: 'success',
-              message: `Project ${this.project.name} has been deleted`
-            })
-          }
+          this.$notify({
+            type: res.success ? 'success' : 'error',
+            message: res.success ? `Project ${this.project.name} has been deleted` : `Cannot delete ${this.project.name}`
+          })
         }
       }).catch((err) => {
         console.error('err ===> ', err)

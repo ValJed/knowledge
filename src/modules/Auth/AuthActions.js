@@ -13,11 +13,19 @@ export default {
         date.setDate(date.getDate() + 1)
         document.cookie = `knowledge-token=${res.data.token}; expires=${date}.`
 
-        // Reducing projects in unique object with ids as keys
+        // Reducing projects in unique object with ids as keys, also for blocks inside projects
         const projects = res.data.projects.reduce((projects, project) => {
           return {
             ...projects,
-            [project._id]: project
+            [project._id]: {
+              ...project,
+              blocks: project.blocks.reduce((blocks, block) => {
+                return {
+                  ...blocks,
+                  [block._id]: block
+                }
+              }, {})
+            }
           }
         }, {})
 

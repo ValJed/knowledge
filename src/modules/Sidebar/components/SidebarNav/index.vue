@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar-nav">
     <div
-      v-if="currentProject.blocks.length"
+      v-if="Object.values(currentProject.blocks).length"
       class="sidebar-nav__content"
     >
       these are blocks :
@@ -11,7 +11,7 @@
         @close="handleClose"
       >
         <block
-          v-for="(block, index) in currentProject.blocks"
+          v-for="(block, index) in Object.values(currentProject.blocks)"
           :key="index"
           :block="{...block, index}"
         />
