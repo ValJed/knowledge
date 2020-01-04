@@ -19,13 +19,13 @@
       >
         <li
           class="block-options-list__item"
-          @click.stop="showModal('add')"
+          @click.stop="createPage()"
         >
           Add
         </li>
         <li
           class="block-options-list__item"
-          @click.stop="showModal('delete')"
+          @click.stop="removeBlock()"
         >
           Delete
         </li>
@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 
 export default {
   props: {
@@ -43,17 +44,47 @@ export default {
       required: true
     }
   },
-  data: function () {
+  data () {
     return {
       openedOptions: false
     }
   },
   methods: {
+    ...mapActions(['addPage', 'deleteBlock']),
     showOptions () {
       this.openedOptions = !this.openedOptions
     },
     closeOptions () {
       this.openedOptions = false
+    },
+    createPage () {
+      this.$prompt('Add a page', 'Tip', {
+        confirmButtonText: 'OK',
+        cancelButtonText: 'Cancel'
+        // inputPattern: //,
+      }).then(async ({ value, action }) => {
+        if (action === 'confirm') {
+          const res = await this.addPage({ blockId: this.block._id, pageName: value })
+
+          if (res.success) {
+            this.$message({
+              type: 'success',
+              message: 'Your email is:'
+            })
+          }
+        }
+      })
+    },
+    removeBlock () {
+      this.$alert('Do you want to delete this block ?', this.block.name, {
+        confirmButtonText: 'Ok'
+      }).then(async (value) => {
+        if (value === 'confirm') {
+          const res = await this.deleteBlock({ blockId: this.blockId })
+
+          console.log('res ===> ', res)
+        }
+      })
     },
     showModal (type) {
       const params = type === 'add'

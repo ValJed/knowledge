@@ -21,15 +21,19 @@ export default {
 
     if (res.data.success) {
       commit(DELETE_BLOCK, res.data.blockId)
+
+      return { success: true }
     }
+
+    return { success: false }
   },
 
   async addPage ({ commit, getters, state }, data) {
-    data._id = state.currentProjectId
+    data.projectId = state.currentProjectId
+
+    console.log('data ===> ', data)
 
     const res = await post('api/blocks/pages', data)
-
-    console.log('res.data ===> ', res.data)
 
     if (res && res.data.success) {
       const payload = {
@@ -38,13 +42,18 @@ export default {
       }
 
       commit(ADD_PAGE, payload)
+      return { success: true }
     }
+
+    return { success: false }
   },
 
   async deletePage ({ commit, getters, state }, data) {
-    data._id = state.currentProjectId
+    data.projectId = state.currentProjectId
 
     const res = await del('api/blocks/pages', data)
+
+    console.log('res ===> ', res)
 
     if (res.data.success) {
       commit(DELETE_PAGE, data)

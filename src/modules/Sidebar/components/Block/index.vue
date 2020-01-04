@@ -60,15 +60,31 @@ export default {
       this.isOpen = !this.isOpen
     },
     showModal () {
-      const params = {
-        title: `Add a page inside ${this.block.name} block`,
-        actionToTrigger: 'addPage',
-        actionParams: {
-          blockId: this.block._id
-        }
-      }
+      this.$prompt('Add a page', 'Tip', {
+        confirmButtonText: 'OK',
+        cancelButtonText: 'Cancel'
+        // inputPattern: //,
+      }).then(({ value }) => {
+        console.log('value ===> ', value)
+        this.$message({
+          type: 'success',
+          message: 'Your email is:' + value
+        })
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: 'Input canceled'
+        })
+      })
+      // const params = {
+      //   title: `Add a page inside ${this.block.name} block`,
+      //   actionToTrigger: 'addPage',
+      //   actionParams: {
+      //     blockId: this.block._id
+      //   }
+      // }
 
-      this.$modal.show(params)
+      // this.$modal.show(params)
     }
   }
 }

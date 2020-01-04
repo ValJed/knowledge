@@ -40,7 +40,10 @@ export default {
         confirmButtonText: 'OK'
       }).then(async (value) => {
         if (value === 'confirm') {
-          const res = await this.deletePage(this.project._id)
+          const res = await this.deletePage({
+            blockId: this.blockid,
+            pageName: this.page.name
+          })
 
           console.log('res ===> ', res)
           this.$notify({

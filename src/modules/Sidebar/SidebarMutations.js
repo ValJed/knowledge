@@ -57,11 +57,30 @@ export default {
         blocks: newBlocks
       }
     }
-  }
+  },
 
-  // [types.DELETE_PAGE]: (state, { projectId, blockId, pageId }) => {
-  //   const index = state.projects
-  //     .find((project) => project._id === state.currentProjectId).blocks
-  //     .find((page) => block._id)
-  // }
+  [types.DELETE_PAGE]: (state, { projectId, blockId, pageName }) => {
+    const currentProject = state.projects[state.currentProjectId]
+
+    const newPages = currentProject.blocks[blockId].pages.filter((page) => page.name !== pageName)
+
+    console.log('newPages ===> ', newPages)
+
+    state.projects = {
+      ...state.projects,
+      [currentProject._id]: {
+        ...currentProject,
+        blocks: {
+          ...currentProject.blocks,
+          [blockId]: {
+            ...currentProject.blocks[blockId],
+            pages: newPages
+          }
+        }
+      }
+    }
+    // const index = state.projects
+    //   .find((project) => project._id === state.currentProjectId).blocks
+    //   .find((page) => block._id)
+  }
 }
