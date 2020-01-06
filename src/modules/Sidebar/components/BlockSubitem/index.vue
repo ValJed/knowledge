@@ -2,7 +2,7 @@
   <li
     class="block-subitem"
   >
-    <span>{{ page.name }}</span>
+    <span @click="setCurrentPage({ blockId, pageId: page._id })">{{ page.name }}</span>
     <icon
       name="cross"
       :size="1"
@@ -26,30 +26,34 @@ export default {
       type: Object,
       required: true
     },
-    blockid: {
+    blockId: {
       type: String,
       required: true
     }
   },
+  // mounted () {
+  //   console.log('this.blockId ===> ', this.blockId)
+  // },
   methods: {
-    ...mapActions([
-      'deletePage'
-    ]),
+    ...mapActions(['deletePage', 'setCurrentPage']),
     removePage () {
       this.$alert('Voulez-vous supprimer cette page ?', this.page.name, {
         confirmButtonText: 'OK'
       }).then(async (value) => {
         if (value === 'confirm') {
           const res = await this.deletePage({
-            blockId: this.blockid,
+            blockId: this.blockId,
             pageName: this.page.name
           })
 
           console.log('res ===> ', res)
-          this.$notify({
-            type: 'success',
-            message: `Deleted`
-          })
+
+          if (res.success) {
+            this.$notify({
+              type: 'success',
+              message: `Deleted`
+            })
+          }
         }
       })
     }

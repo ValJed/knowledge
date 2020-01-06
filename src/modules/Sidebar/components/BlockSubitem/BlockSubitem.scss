@@ -1,6 +1,10 @@
 .block-subitem {
   padding: .5rem;
 
+  span {
+    cursor: pointer;
+  }
+
   &:hover {
     .icon {
       transform: translateX(0) rotate(45deg);

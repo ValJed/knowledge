@@ -208,6 +208,12 @@ export default {
     EditorContent,
     EditorMenuBar
   },
+  props: {
+    content: {
+      type: String,
+      required: true
+    }
+  },
   data () {
     return {
       editor: new Editor({
@@ -233,7 +239,7 @@ export default {
           new TableCell(),
           new TableRow()
         ],
-        content: `<h1>Type your content here!</h1>`
+        content: this.content
       })
     }
   },

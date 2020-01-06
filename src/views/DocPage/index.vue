@@ -1,8 +1,8 @@
 <template>
   <div class="docPage">
-    <h3>{{ currentProject.name }}</h3>
-    <p>{{ currentProject.description }}</p>
-    <editor-block />
+    <h3>{{ itemToDisplay.name }}</h3>
+    <!-- <p>{{ itemToDisplay.content }}</p> -->
+    <editor-block :content="itemToDisplay.content" />
   </div>
 </template>
 
@@ -19,12 +19,31 @@ export default {
   },
   data () {
     return {
-      msg: 'MESSAGE COOL'
+      // name: '',
+      // content: ''
     }
   },
   computed: {
     ...mapState(['user, projects']),
-    ...mapGetters(['currentProject'])
+    ...mapGetters(['currentProject', 'currentBlock', 'currentPage']),
+    itemToDisplay () {
+      if (this.currentPage) {
+        return {
+          name: this.currentPage.name,
+          content: this.currentPage.content
+        }
+      } else if (this.currentBlock) {
+        return {
+          name: this.currentBlock.name,
+          content: this.currentBlock.content
+        }
+      }
+
+      return {
+        name: this.currentProject.name,
+        content: this.currentProject.description
+      }
+    }
   }
 }
 </script>

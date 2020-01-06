@@ -15,8 +15,9 @@
       <ul class="block-menu-list">
         <li @click="showModal">
           Add
+          tt
         </li>
-        <li>Delete</li>
+        <li>Delete kk</li>
       </ul>
     </el-popover>
   </div>
@@ -32,6 +33,7 @@ export default {
   },
   methods: {
     showModal () {
+      console.log('=============> HERE <================')
       const params = {
         // title: `Add a new page inside ${this.block.name}`,
         // field: this.field,

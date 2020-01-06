@@ -10,7 +10,7 @@
         v-for="page in block.pages"
         :key="page.index"
         :page="page"
-        :blockid="block._id"
+        :block-id="block._id"
       />
     </ul>
   </div>

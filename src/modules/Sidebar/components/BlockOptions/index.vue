@@ -67,9 +67,14 @@ export default {
           const res = await this.addPage({ blockId: this.block._id, pageName: value })
 
           if (res.success) {
-            this.$message({
-              type: 'success',
-              message: 'Your email is:'
+            this.$notify({
+              message: 'Page has been created !',
+              type: 'success'
+            })
+          } else {
+            this.$notify.error({
+              title: 'Error',
+              message: 'Page has been created !'
             })
           }
         }
@@ -80,30 +85,20 @@ export default {
         confirmButtonText: 'Ok'
       }).then(async (value) => {
         if (value === 'confirm') {
-          const res = await this.deleteBlock({ blockId: this.blockId })
+          const res = await this.deleteBlock({ blockId: this.block._id })
 
-          console.log('res ===> ', res)
+          if (res.success) {
+            this.$notify({
+              message: `Block ${this.block.name} has been deleted !`,
+              type: 'success'
+            })
+          } else {
+            this.$notify.error({
+              message: `Cannot delete this block !`
+            })
+          }
         }
       })
-    },
-    showModal (type) {
-      const params = type === 'add'
-        ? {
-          title: `Add a page inside ${this.block.name} block`,
-          actionToTrigger: 'addPage',
-          actionParams: {
-            blockId: this.block._id
-          }
-        } : {
-          title: `Do you want to delete the ${this.block.name} block`,
-          actionToTrigger: 'deleteBlock',
-          actionParams: {
-            blockId: this.block._id
-          }
-        }
-
-      this.openedOptions = false
-      this.$modal.show(params)
     }
   }
 }

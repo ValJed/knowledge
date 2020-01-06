@@ -3,7 +3,9 @@ export const types = {
   ADD_BLOCK: 'ADD_BLOCK',
   ADD_PAGE: 'ADD_PAGE',
   DELETE_BLOCK: 'DELETE_BLOCK',
-  DELETE_PAGE: 'DELETE_PAGE'
+  DELETE_PAGE: 'DELETE_PAGE',
+  SET_CURRENT_BLOCK: 'SET_CURRENT_BLOCK',
+  SET_CURRENT_PAGE: 'SET_CURRENT_PAGE'
 }
 
 export default {
@@ -44,6 +46,7 @@ export default {
   },
 
   [types.DELETE_BLOCK]: (state, blockId) => {
+    console.log('blockId ===> ', blockId)
     const currentProject = state.projects[state.currentProjectId]
 
     const newBlocks = { ...currentProject.blocks }
@@ -64,8 +67,6 @@ export default {
 
     const newPages = currentProject.blocks[blockId].pages.filter((page) => page.name !== pageName)
 
-    console.log('newPages ===> ', newPages)
-
     state.projects = {
       ...state.projects,
       [currentProject._id]: {
@@ -79,8 +80,13 @@ export default {
         }
       }
     }
-    // const index = state.projects
-    //   .find((project) => project._id === state.currentProjectId).blocks
-    //   .find((page) => block._id)
+  },
+
+  [types.SET_CURRENT_BLOCK]: (state, blockId) => {
+    state.currentBlockId = blockId
+  },
+
+  [types.SET_CURRENT_PAGE]: (state, pageId) => {
+    state.currentPageId = pageId
   }
 }

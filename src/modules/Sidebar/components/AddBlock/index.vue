@@ -39,13 +39,32 @@ export default {
   methods: {
     ...mapActions(['addBlock']),
     showModal () {
-      const params = {
-        title: `Add a new block inside ${this.currentProject.name} project`,
-        field: this.field,
-        actionToTrigger: 'addBlock'
-      }
+      this.$prompt('Add a block', {
+        confirmButtonText: 'OK',
+        cancelButtonText: 'Cancel'
+        // inputPattern: //,
+      }).then(async ({ value, action }) => {
+        if (action === 'confirm') {
+          const res = await this.addBlock({ blockName: value })
 
-      this.$modal.show(params)
+          if (res.success) {
+            this.$notify({
+              message: 'Block has been successfully created !',
+              type: 'success'
+            })
+          } else {
+            this.$notify.error({
+              message: 'Couldn\'t create block'
+            })
+          }
+        }
+      }).catch((error) => {
+        if (error !== 'cancel') {
+          this.$notify.error({
+            message: 'Couldn\'t create block'
+          })
+        }
+      })
     }
   }
 }

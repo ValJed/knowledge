@@ -4,8 +4,9 @@ import AuthMutations from './Auth/AuthMutations'
 import ProjectsActions from './Projects/ProjectsActions'
 import ProjectsMutations from './Projects/ProjectsMutations'
 import ProjectsGetters from './Projects/ProjectsGetters'
+import SidebarGetters from './Sidebar/SidebarGetters'
 
-import SidebatActions from './Sidebar/SidebarActions'
+import SidebarActions from './Sidebar/SidebarActions'
 import SidebarMutations from './Sidebar/SidebarMutations'
 
 // import CommonActions from './Common/CommonActions'
@@ -14,7 +15,7 @@ import SidebarMutations from './Sidebar/SidebarMutations'
 const actions = {
   ...AuthActions,
   ...ProjectsActions,
-  ...SidebatActions
+  ...SidebarActions
 }
 
 const mutations = {
@@ -24,7 +25,8 @@ const mutations = {
 }
 
 const getters = {
-  ...ProjectsGetters
+  ...ProjectsGetters,
+  ...SidebarGetters
 }
 
 export {
