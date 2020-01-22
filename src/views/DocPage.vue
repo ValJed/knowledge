@@ -2,13 +2,21 @@
   <div class="docPage">
     <h3>{{ itemToDisplay.name }}</h3>
     <!-- <p>{{ itemToDisplay.content }}</p> -->
+    <div class="save">
+      <el-button
+        type="primary"
+        @click="savePage(itemToDisplay)"
+      >
+        Save changes
+      </el-button>
+    </div>
     <editor-block :content="itemToDisplay.content" />
   </div>
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
-import EditorBlock from '@/modules/Page/components/EditorBlock'
+import { mapState, mapGetters, mapActions } from 'vuex'
+import EditorBlock from '@/modules/Page/components/EditorBlock.vue'
 // import ProjectsList from '@/modules/Projects/ProjectsList'
 
 export default {
@@ -28,20 +36,21 @@ export default {
     ...mapGetters(['currentProject', 'currentBlock', 'currentPage']),
     itemToDisplay () {
       if (this.currentPage) {
-        return {
-          name: this.currentPage.name,
-          content: this.currentPage.content
-        }
+        return this.currentPage
       } else if (this.currentBlock) {
-        return {
-          name: this.currentBlock.name,
-          content: this.currentBlock.content
-        }
+        return this.currentBlock
       }
 
-      return {
-        name: this.currentProject.name,
-        content: this.currentProject.description
+      return this.currentProject
+    }
+  },
+  methods: {
+    ...mapActions(['updatePage']),
+    async savePage (item) {
+      if (this.currentPage) {
+        const res = await this.updatePage({ page: item, blockId: this.currentBlock._id })
+
+        console.log('res ===> ', res)
       }
     }
   }

@@ -11,23 +11,23 @@ export const createRouter = () => {
       {
         path: '/',
         name: 'Home',
-        component: () => import('./views/Home')
+        component: () => import('./views/Home.vue')
       },
       {
         path: '/:id',
         name: 'User',
-        component: () => import('./views/User')
+        component: () => import('./views/User.vue')
 
       },
       {
         path: '/:id/:project',
         name: 'Project',
-        component: () => import('./views/Project')
+        component: () => import('./views/Project.vue')
       },
       {
         path: '*',
         name: '404',
-        component: () => import('./views/404')
+        component: () => import('./views/404.vue')
       }
     ]
   })

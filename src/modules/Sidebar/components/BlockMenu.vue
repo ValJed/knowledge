@@ -33,7 +33,6 @@ export default {
   },
   methods: {
     showModal () {
-      console.log('=============> HERE <================')
       const params = {
         // title: `Add a new page inside ${this.block.name}`,
         // field: this.field,

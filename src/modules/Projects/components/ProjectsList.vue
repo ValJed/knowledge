@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import ProjectsItem from '@/modules/Projects/components/ProjectsItem'
-import AddProject from '@/modules/Projects/components/AddProject'
+import ProjectsItem from '@/modules/Projects/components/ProjectsItem.vue'
+import AddProject from '@/modules/Projects/components/AddProject.vue'
 
 import {
   mapState,

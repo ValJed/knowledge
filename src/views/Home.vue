@@ -27,8 +27,8 @@
 </template>
 
 <script>
-import Login from '@/modules/Auth/components/Login'
-import CreateAccount from '@/modules/Auth/components/CreateAccount'
+import Login from '@/modules/Auth/components/Login.vue'
+import CreateAccount from '@/modules/Auth/components/CreateAccount.vue'
 
 export default {
   name: 'Home',

@@ -9,10 +9,12 @@
 </template>
 
 <script>
-import Banner from '@/modules/Common/components/Banner'
-import Modal from '@/modules/Common/components/Modal'
+import Banner from '@/modules/Common/components/Banner.vue'
+import Modal from '@/modules/Common/components/Modal.vue'
 // import gql from 'graphql-tag'
 // import { dev } from '../config'
+
+console.log('Banner ===> ', Banner)
 
 export default {
   name: 'App',

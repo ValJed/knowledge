@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import ProjectsList from '@/modules/Projects/components/ProjectsList'
+import ProjectsList from '@/modules/Projects/components/ProjectsList.vue'
 import {
   // mapActions,
   mapState

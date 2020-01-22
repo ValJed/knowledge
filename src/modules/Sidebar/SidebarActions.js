@@ -1,4 +1,4 @@
-import { post, del } from '@/lib/network'
+import { post, put, del } from '@/lib/network'
 import { types } from './SidebarMutations'
 
 const {
@@ -83,5 +83,26 @@ export default {
   setCurrentPage ({ commit, getters, state }, { blockId, pageId }) {
     commit(SET_CURRENT_BLOCK, blockId)
     commit(SET_CURRENT_PAGE, pageId)
+  },
+
+  async updatePage ({ commit, getters, state }, data) {
+    data.projectId = state.currentProjectId
+
+    console.log('data ===> ', data)
+
+    const res = await put('api/blocks/pages', data)
+
+    console.log('res ===> ', res)
+
+    if (res.data.success) {
+      commit(DELETE_PAGE, data)
+      return {
+        success: true
+      }
+    }
+
+    return {
+      success: false
+    }
   }
 }

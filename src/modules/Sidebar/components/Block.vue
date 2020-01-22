@@ -33,8 +33,8 @@
 </template>
 
 <script>
-import BlockSubmenu from '@/modules/Sidebar/components/BlockSubmenu'
-import BlockOptions from '@/modules/Sidebar/components/BlockOptions'
+import BlockSubmenu from '@/modules/Sidebar/components/BlockSubmenu.vue'
+import BlockOptions from '@/modules/Sidebar/components/BlockOptions.vue'
 
 export default {
   components: {

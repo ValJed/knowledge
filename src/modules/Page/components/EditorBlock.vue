@@ -176,7 +176,7 @@
 <script>
 
 // Import the editor
-import Icon from '@/modules/Common/components/Icon'
+import Icon from '@/modules/Common/components/Icon.vue'
 import { Editor, EditorContent, EditorMenuBar } from 'tiptap'
 import {
   Blockquote,

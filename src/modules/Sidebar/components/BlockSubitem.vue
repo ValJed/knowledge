@@ -31,9 +31,6 @@ export default {
       required: true
     }
   },
-  // mounted () {
-  //   console.log('this.blockId ===> ', this.blockId)
-  // },
   methods: {
     ...mapActions(['deletePage', 'setCurrentPage']),
     removePage () {
@@ -43,17 +40,13 @@ export default {
         if (value === 'confirm') {
           const res = await this.deletePage({
             blockId: this.blockId,
-            pageName: this.page.name
+            pageId: this.page._id
           })
 
-          console.log('res ===> ', res)
-
-          if (res.success) {
-            this.$notify({
-              type: 'success',
-              message: `Deleted`
-            })
-          }
+          this.$notify({
+            type: res.success ? 'success' : 'error',
+            message: res.success ? 'Deleted' : 'Failed to detete'
+          })
         }
       })
     }

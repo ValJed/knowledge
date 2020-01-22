@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import Sidebar from '@/views/Sidebar'
-import DocPage from '@/views/DocPage'
+import Sidebar from '@/views/Sidebar.vue'
+import DocPage from '@/views/DocPage.vue'
 // import { mapState } from 'vuex'
 
 export default {

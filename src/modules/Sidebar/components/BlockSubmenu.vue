@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import BlockSubitem from '@/modules/Sidebar/components/BlockSubitem'
+import BlockSubitem from '@/modules/Sidebar/components/BlockSubitem.vue'
 
 export default {
   components: {

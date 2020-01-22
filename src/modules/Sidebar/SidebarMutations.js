@@ -46,7 +46,6 @@ export default {
   },
 
   [types.DELETE_BLOCK]: (state, blockId) => {
-    console.log('blockId ===> ', blockId)
     const currentProject = state.projects[state.currentProjectId]
 
     const newBlocks = { ...currentProject.blocks }
@@ -62,10 +61,10 @@ export default {
     }
   },
 
-  [types.DELETE_PAGE]: (state, { projectId, blockId, pageName }) => {
+  [types.DELETE_PAGE]: (state, { projectId, blockId, pageId }) => {
     const currentProject = state.projects[state.currentProjectId]
 
-    const newPages = currentProject.blocks[blockId].pages.filter((page) => page.name !== pageName)
+    const newPages = currentProject.blocks[blockId].pages.filter((page) => page._id !== pageId)
 
     state.projects = {
       ...state.projects,
